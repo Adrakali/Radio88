@@ -20,7 +20,7 @@ export default function Show() {
         </p>
         {loading && <div>Laddar sidan...</div>}
         {error && <div>{error}</div>}
-        {/* {data && (
+        {data && (
           <article>
             {id}
             <h1>{data.fields.title}</h1>
@@ -30,7 +30,7 @@ export default function Show() {
               alt={`${data.fields.title} programbild`}
             />
           </article>
-        )} */}
+        )}
       </div>
     </section>
   );
