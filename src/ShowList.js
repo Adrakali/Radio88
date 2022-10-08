@@ -7,20 +7,23 @@ export default function ShowList() {
 
   return (
     <section>
-      <div className="container grid">
-        {error && <div>{error}</div>}
-        {loading && <h1>Laddar sidan...</h1>}
-        {data &&
-          data.map((show) => (
-            <ShowCard
-              key={show.sys.id}
-              id={show.sys.id}
-              slug={show.fields.slug}
-              title={show.fields.title}
-              desc={show.fields.description}
-              img={show.fields.image.fields.file.url}
-            />
-          ))}
+      <div className="container">
+        <h1>Program</h1>
+        <div className="container grid">
+          {error && <div>{error}</div>}
+          {loading && <h1>Laddar sidan...</h1>}
+          {data &&
+            data.map((show) => (
+              <ShowCard
+                key={show.sys.id}
+                id={show.sys.id}
+                slug={show.fields.slug}
+                title={show.fields.title}
+                desc={show.fields.description}
+                img={show.fields.image.fields.file.url}
+              />
+            ))}
+        </div>
       </div>
     </section>
   );

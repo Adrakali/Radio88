@@ -23,6 +23,7 @@ export default function ShowDetails() {
           data
             .filter((show) => show.fields.slug === id)
             .map((filteredShow) => {
+              console.log(data);
               return (
                 <article key={filteredShow.sys.id}>
                   <h1>{filteredShow.fields.title}</h1>
@@ -33,7 +34,13 @@ export default function ShowDetails() {
                   <img
                     src={filteredShow.fields.image.fields.file.url}
                     alt={`${filteredShow.fields.title} programbild`}
+                    className="showdetails__img"
                   />
+                  <button className="showdetails__play" onClick={playShow(filteredShow.fields.streamurl)}>
+                    <a href={filteredShow.fields.streamurl}>
+                      Lyssna på senaste avsnittet av {filteredShow.fields.title}
+                    </a>
+                  </button>
                 </article>
               );
             })}

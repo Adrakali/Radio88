@@ -16,7 +16,7 @@ export default function Nav() {
 						<Link to="/program">Program</Link>
 					</li>
 					<li>
-						<Link to="/contact">Kontakt</Link>
+						<Link to="/kontakt">Kontakt</Link>
 					</li>
 				</ul>
 				<Player />
