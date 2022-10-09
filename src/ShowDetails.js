@@ -36,7 +36,7 @@ export default function ShowDetails() {
                     alt={`${filteredShow.fields.title} programbild`}
                     className="showdetails__img"
                   />
-                  <button className="showdetails__play" onClick={playShow(filteredShow.fields.streamurl)}>
+                  <button>
                     <a href={filteredShow.fields.streamurl}>
                       Lyssna på senaste avsnittet av {filteredShow.fields.title}
                     </a>
