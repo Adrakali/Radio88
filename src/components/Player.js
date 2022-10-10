@@ -1,7 +1,14 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
+import { StreamContext } from "../App";
 
 export default function Player() {
-  const audio = useRef(new Audio("https://streaming.943.se/radio88"));
+  const stream = useContext(StreamContext);
+  
+  // useEffect(() => {
+  //   setStream(res);
+  // }, stream);
+
+  const audio = useRef(new Audio(stream));
 
   // PLAY RADIO ========================
 
