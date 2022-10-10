@@ -2,8 +2,9 @@ import React, { useEffect, useState, useRef, useContext } from "react";
 import { StreamContext } from "../App";
 
 export default function Player() {
-  const stream = useContext(StreamContext);
-  
+  const {stream, streamTitle } = useContext(StreamContext);
+  // const streamTitle = useContext(StreamContext.title);
+
   // useEffect(() => {
   //   setStream(res);
   // }, stream);
@@ -53,9 +54,7 @@ export default function Player() {
         )}
       </button>
       <div className="player__title">
-        <p className="secondary-txt-clr">
-          Vi spelar musiken som du glömt att du kommer ihåg
-        </p>
+        <p className="secondary-txt-clr">{streamTitle}</p>
       </div>
       <div className="player__vol-container">
         <button className="volume-btn">
