@@ -2,12 +2,9 @@ import React, { useEffect, useState, useRef, useContext } from "react";
 import { StreamContext } from "../App";
 
 export default function Player() {
-  const {stream, streamTitle } = useContext(StreamContext);
-  // const streamTitle = useContext(StreamContext.title);
+  const { stream, streamTitle } = useContext(StreamContext);
 
-  // useEffect(() => {
-  //   setStream(res);
-  // }, stream);
+  console.log(stream, streamTitle);
 
   const audio = useRef(new Audio(stream));
 
@@ -43,6 +40,14 @@ export default function Player() {
       setVolumeIcon("fa-solid fa-volume-xmark");
     }
   }
+  
+  const [display, setDisplay] = useState(false);
+
+  // useEffect(() => {
+    if (stream !== "https://streaming.943.se/radio88") {
+      setDisplay(true);
+    }
+  // }, {stream});
 
   return (
     <div className="player">
@@ -55,6 +60,9 @@ export default function Player() {
       </button>
       <div className="player__title">
         <p className="secondary-txt-clr">{streamTitle}</p>
+        <button className="player__live-button" style={{ display: {display} }}>
+          Lyssna Live
+        </button>
       </div>
       <div className="player__vol-container">
         <button className="volume-btn">

@@ -7,20 +7,22 @@ import Contact from "./Contact";
 import ShowList from "./ShowList";
 import ShowDetails from "./ShowDetails";
 
-export const StreamContext = createContext(
-  {stream:"https://streaming.943.se/radio88",
+export const StreamContext = createContext({
+  stream: "https://streaming.943.se/radio88",
   streamTitle: "Vi spelar musiken som du glömt att du kommer ihåg",
 });
 
 function App() {
-  const [stream] = useState("https://streaming.943.se/radio88");
-  const [streamTitle] = useState(
+  const [stream, setStream] = useState("https://streaming.943.se/radio88");
+  const [streamTitle, setStreamTitle] = useState(
     "Vi spelar musiken som du glömt att du kommer ihåg"
   );
-
+  console.log(stream, streamTitle);
   return (
     <BrowserRouter>
-      <StreamContext.Provider value={{stream, streamTitle}}>
+      <StreamContext.Provider
+        value={{ stream, setStream, streamTitle, setStreamTitle }}
+      >
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />

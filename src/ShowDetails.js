@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useCallback, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useContentful from "./Hooks/useContentful";
+import { StreamContext } from "./App";
 
 export default function ShowDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { data, loading, error } = useContentful();
+  const { stream, setStream, setStreamTitle } = useContext(StreamContext);
+
+  useCallback(
+    (url, title) => {
+      setStream(url);
+      setStreamTitle(`Du lyssnar på det senaste avsnittet av ${title}`);
+    },
+    [stream]
+  );
+
   return (
     <section>
       <div className="container">
@@ -23,7 +34,6 @@ export default function ShowDetails() {
           data
             .filter((show) => show.fields.slug === id)
             .map((filteredShow) => {
-              console.log(data);
               return (
                 <article key={filteredShow.sys.id}>
                   <h1>{filteredShow.fields.title}</h1>
@@ -31,16 +41,19 @@ export default function ShowDetails() {
                     {filteredShow.fields.day} kl. {filteredShow.fields.time}
                   </p>
                   <p>{filteredShow.fields.description}</p>
+                  <button
+                    onClick={() => {
+                      setStream(filteredShow.fields.streamurl);
+                      setStreamTitle(filteredShow.fields.title);
+                    }}
+                  >
+                    Lyssna på senaste avsnittet av {filteredShow.fields.title}
+                  </button>
                   <img
                     src={filteredShow.fields.image.fields.file.url}
                     alt={`${filteredShow.fields.title} programbild`}
                     className="showdetails__img"
                   />
-                  <button>
-                    <a href={filteredShow.fields.streamurl}>
-                      Lyssna på senaste avsnittet av {filteredShow.fields.title}
-                    </a>
-                  </button>
                 </article>
               );
             })}
