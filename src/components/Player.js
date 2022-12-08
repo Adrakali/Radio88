@@ -3,9 +3,6 @@ import { StreamContext } from "../App";
 
 export default function Player() {
   const { stream, streamTitle } = useContext(StreamContext);
-
-  console.log(stream, streamTitle);
-
   const audio = useRef(new Audio(stream));
 
   // PLAY RADIO ========================
@@ -43,11 +40,11 @@ export default function Player() {
   
   const [display, setDisplay] = useState(false);
 
-  // useEffect(() => {
+  useEffect(() => {
     if (stream !== "https://streaming.943.se/radio88") {
       setDisplay(true);
     }
-  // }, {stream});
+  }, {stream});
 
   return (
     <div className="player">
@@ -60,6 +57,9 @@ export default function Player() {
       </button>
       <div className="player__title">
         <p className="secondary-txt-clr">{streamTitle}</p>
+        <button className="player__live-button" style={{ display: {display} }}>
+          Lyssna Live
+        </button>
         <button className="player__live-button" style={{ display: {display} }}>
           Lyssna Live
         </button>

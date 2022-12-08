@@ -4,8 +4,8 @@ import Nav from "./components/Nav";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Contact from "./Contact";
-import ShowList from "./ShowList";
-import ShowDetails from "./ShowDetails";
+import ShowList from "./Shows";
+import ShowDetails from "./Show";
 
 export const StreamContext = createContext({
   stream: "https://streaming.943.se/radio88",
