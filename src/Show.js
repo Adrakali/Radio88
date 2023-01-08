@@ -1,18 +1,13 @@
-import React, { useCallback, useContext } from "react";
+import React, { useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useContentful from "./Hooks/useContentful";
-import { StreamContext } from "./App";
+// import { StreamContext } from "./Context/StreamContext";
 
-export default function ShowDetails() {
+export default function Show() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { data, loading, error } = useContentful();
-  const { setStream, setStreamTitle, handleSourceChange } = useContext(StreamContext);
-
-  useCallback((url, title) => {
-    setStream(url);
-    setStreamTitle(`Du lyssnar på det senaste avsnittet av ${title}`);
-  });
+  // const { setStreamSrc, setStreamSrcTitle } = useContext(StreamContext);
 
   return (
     <section>
@@ -39,14 +34,10 @@ export default function ShowDetails() {
                   </p>
                   <p>{filteredShow.fields.description}</p>
                   <button
-                    onClick={() => {
-                      handleSourceChange(
-                        filteredShow.fields.streamurl,
-                        filteredShow.fields.title
-                      );
-                      // setStream(filteredShow.fields.streamurl);
-                      // setStreamTitle(filteredShow.fields.title);
-                    }}
+                  // onClick={() => {
+                  //   setStreamSrc(filteredShow.fields.streamurl);
+                  //   setStreamSrcTitle(filteredShow.fields.title);
+                  // }}
                   >
                     Lyssna på senaste avsnittet av {filteredShow.fields.title}
                   </button>

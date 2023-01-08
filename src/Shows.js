@@ -2,7 +2,7 @@ import React from "react";
 import useContentful from "./Hooks/useContentful";
 import ShowCard from "./components/ShowCard";
 
-export default function ShowList() {
+export default function Shows() {
   const { data, loading, error } = useContentful();
 
   return (
