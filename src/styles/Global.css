@@ -80,6 +80,9 @@ body {
 main {
   margin: auto;
   height: 100%;
+}
+
+section {
   padding: 0 2em;
 }
 

@@ -118,13 +118,20 @@ a {
   align-items: center;
   border-bottom: var(--border);
   background-color: white;
-  max-width: var(--container-width);
   margin: auto;
+  padding: 0;
+}
+
+.hero .container {
+  display: flex;
+  align-items: center;
+  gap: 5em;
+  max-height: 500px;
+  padding: 0;
 }
 
 .hero__text {
   margin-inline: auto;
-  padding: 0rem 5rem;
 }
 
 ul {

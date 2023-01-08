@@ -7,7 +7,7 @@ export default function ShowDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { data, loading, error } = useContentful();
-  const { setStream, setStreamTitle } = useContext(StreamContext);
+  const { setStream, setStreamTitle, handleSourceChange } = useContext(StreamContext);
 
   useCallback((url, title) => {
     setStream(url);
@@ -40,8 +40,12 @@ export default function ShowDetails() {
                   <p>{filteredShow.fields.description}</p>
                   <button
                     onClick={() => {
-                      setStream(filteredShow.fields.streamurl);
-                      setStreamTitle(filteredShow.fields.title);
+                      handleSourceChange(
+                        filteredShow.fields.streamurl,
+                        filteredShow.fields.title
+                      );
+                      // setStream(filteredShow.fields.streamurl);
+                      // setStreamTitle(filteredShow.fields.title);
                     }}
                   >
                     Lyssna på senaste avsnittet av {filteredShow.fields.title}
