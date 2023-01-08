@@ -7,15 +7,12 @@ export default function ShowDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { data, loading, error } = useContentful();
-  const { stream, setStream, setStreamTitle } = useContext(StreamContext);
+  const { setStream, setStreamTitle } = useContext(StreamContext);
 
-  useCallback(
-    (url, title) => {
-      setStream(url);
-      setStreamTitle(`Du lyssnar på det senaste avsnittet av ${title}`);
-    },
-    [stream]
-  );
+  useCallback((url, title) => {
+    setStream(url);
+    setStreamTitle(`Du lyssnar på det senaste avsnittet av ${title}`);
+  });
 
   return (
     <section>

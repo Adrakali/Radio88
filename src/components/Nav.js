@@ -18,6 +18,9 @@ export default function Nav() {
           <li>
             <Link to="/kontakt">Kontakt</Link>
           </li>
+          <li>
+            <Link to="/player">Player</Link>
+          </li>
         </ul>
         <Player />
       </div>

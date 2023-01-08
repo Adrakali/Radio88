@@ -6,6 +6,7 @@ import Home from "./Home";
 import Contact from "./Contact";
 import ShowList from "./Shows";
 import ShowDetails from "./Show";
+import AudioPlayer from "./AudioPlayer";
 
 export const StreamContext = createContext({
   stream: "https://streaming.943.se/radio88",
@@ -17,19 +18,24 @@ function App() {
   const [streamTitle, setStreamTitle] = useState(
     "Vi spelar musiken som du glömt att du kommer ihåg"
   );
+
   console.log(stream, streamTitle);
+
   return (
     <BrowserRouter>
       <StreamContext.Provider
         value={{ stream, setStream, streamTitle, setStreamTitle }}
       >
         <Nav />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="program" element={<ShowList />} />
-          <Route path="kontakt" element={<Contact />} />
-          <Route path="/program/:id" element={<ShowDetails />} />
-        </Routes>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="program" element={<ShowList />} />
+            <Route path="kontakt" element={<Contact />} />
+            <Route path="player" element={<AudioPlayer />} />
+            <Route path="/program/:id" element={<ShowDetails />} />
+          </Routes>
+        </main>
       </StreamContext.Provider>
     </BrowserRouter>
   );

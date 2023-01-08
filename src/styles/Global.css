@@ -2,14 +2,14 @@
   --dark-brown: #3d2414;
   --light-brown: #603d27;
   --medium: #fbb131;
-  --light: #f9efcc;
+  --light: #fff8dc;
 
   --font-heading: "Big Shoulders Display", cursive;
   --font-body: "Lato", sans-serif;
 
   --border: 3px solid black;
 
-  --container-width: 1140px;
+  --container-width: 1280px;
 }
 
 *,
@@ -22,7 +22,7 @@
 
 html {
   font-size: 100%;
-} /*16px*/
+}
 
 p {
   margin-bottom: 1rem;
@@ -74,15 +74,19 @@ body {
   font-family: var(--font-body);
   background-color: var(--light);
   color: black;
+  height: 100%;
 }
 
-section {
-  padding: 50px 2vw;
+main {
+  margin: auto;
+  height: 100%;
+  padding: 0 2em;
 }
 
 .container {
   margin-inline: auto;
   max-width: var(--container-width);
+  padding: 4em 0;
 }
 
 img {
