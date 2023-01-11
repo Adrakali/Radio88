@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useContentful from "./Hooks/useContentful";
-// import { StreamContext } from "./Context/StreamContext";
+import { StreamContext } from "./Contexts/StreamContext";
 
 export default function Show() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { data, loading, error } = useContentful();
-  // const { setStreamSrc, setStreamSrcTitle } = useContext(StreamContext);
+  const { setStreamSrc, setStreamSrcTitle } = useContext(StreamContext);
 
   return (
     <section>
@@ -16,8 +16,7 @@ export default function Show() {
           className="pointer"
           onClick={() => {
             navigate("/program");
-          }}
-        >
+          }}>
           Tillbaka
         </p>
         {loading && <div>Laddar sidan...</div>}
@@ -27,25 +26,29 @@ export default function Show() {
             .filter((show) => show.fields.slug === id)
             .map((filteredShow) => {
               return (
-                <article key={filteredShow.sys.id}>
-                  <h1>{filteredShow.fields.title}</h1>
-                  <p>
-                    {filteredShow.fields.day} kl. {filteredShow.fields.time}
-                  </p>
-                  <p>{filteredShow.fields.description}</p>
-                  <button
-                  // onClick={() => {
-                  //   setStreamSrc(filteredShow.fields.streamurl);
-                  //   setStreamSrcTitle(filteredShow.fields.title);
-                  // }}
-                  >
-                    Lyssna på senaste avsnittet av {filteredShow.fields.title}
-                  </button>
-                  <img
-                    src={filteredShow.fields.image.fields.file.url}
-                    alt={`${filteredShow.fields.title} programbild`}
-                    className="showdetails__img"
-                  />
+                <article key={filteredShow.sys.id} className="flex gap-16">
+                  <div className="shadow-[16px_16px_0px_0px_#000000]">
+                    <img
+                      src={filteredShow.fields.image.fields.file.url}
+                      alt={`${filteredShow.fields.title} programbild`}
+                      className="showdetails__img max-w-lg border-black border-4"
+                    />
+                  </div>
+                  <div>
+                    <h1 className="mb-0">{filteredShow.fields.title}</h1>
+                    <p className="font-bold text-xl">
+                      {filteredShow.fields.day} kl. {filteredShow.fields.time}
+                    </p>
+                    <p className="text-lg">{filteredShow.fields.description}</p>
+                    <button
+                      className="btn mb-8 py-4 px-8"
+                      onClick={() => {
+                        setStreamSrc(filteredShow.fields.streamurl);
+                        setStreamSrcTitle(filteredShow.fields.title);
+                      }}>
+                      Lyssna på senaste avsnittet av {filteredShow.fields.title}
+                    </button>
+                  </div>
                 </article>
               );
             })}

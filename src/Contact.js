@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
 
 export default function Contact() {
-	return (
-		<section>
-			<div className="container">
-				<h1>Kontakt</h1>
-			</div>
-		</section>
-	);
+  return (
+    <section>
+      <div className="page-header">
+        <h1>Kontakt</h1>
+      </div>
+      <div className="container"></div>
+    </section>
+  );
 }

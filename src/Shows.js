@@ -7,9 +7,11 @@ export default function Shows() {
 
   return (
     <section>
-      <div className="container">
+      <div className="page-header">
         <h1>Program</h1>
-        <div className="container grid">
+      </div>
+      <div className="container">
+        <div className="container grid grid-cols-1 lg:grid-cols-3 -mt-10 gap-8">
           {error && <div>{error}</div>}
           {loading && <h1>Laddar sidan...</h1>}
           {data &&
@@ -21,6 +23,7 @@ export default function Shows() {
                 title={show.fields.title}
                 desc={show.fields.description}
                 img={show.fields.image.fields.file.url}
+                streamUrl={show.fields.streamurl}
               />
             ))}
         </div>

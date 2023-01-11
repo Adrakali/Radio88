@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --dark-brown: #3d2414;
   --light-brown: #603d27;
@@ -86,12 +90,28 @@ section {
   padding: 0 2em;
 }
 
-.container {
+/* .container {
   margin-inline: auto;
   max-width: var(--container-width);
   padding: 4em 0;
-}
+} */
 
 img {
   max-width: 100%;
+}
+
+@layer components {
+  button {
+    @apply cursor-pointer;
+  }
+}
+
+.btn {
+  background-color: var(--medium);
+  border: 3px solid black;
+  outline: none;
+  font-family: var(--font-body);
+  font-weight: 700;
+  /* font-size: 1rem; */
+  /* padding: 0.5em 2em; */
 }
