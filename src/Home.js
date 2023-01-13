@@ -9,11 +9,9 @@ export default function Home() {
   const [isShowLive, setIsShowLive] = useState(false);
 
   //Updating the current time
-  useEffect(() => {
-    setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString());
-    }, 1000);
-  }, []);
+  setInterval(() => {
+    setCurrentTime(new Date().toLocaleTimeString());
+  }, 1000);
 
   //Sort the data based on start time
   data &&
@@ -40,13 +38,12 @@ export default function Home() {
     return currentShow;
   }
 
-  // Check if there is a show live
   useEffect(() => {
     if (!data) return;
     if (filterCurrentShow().length > 0) {
       setIsShowLive(true);
     }
-  }, []);
+  }, [data, currentTime, currentDay, currentWeek]);
 
   // Filter the data to only show todays shows and sort them by start time
   function filterTodaysShows() {
