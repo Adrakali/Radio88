@@ -26,12 +26,12 @@ export default function Show() {
             .filter((show) => show.fields.slug === id)
             .map((filteredShow) => {
               return (
-                <article key={filteredShow.sys.id} className="flex gap-16">
-                  <div className="shadow-[16px_16px_0px_0px_#000000]">
+                <article key={filteredShow.sys.id} className="flex gap-16 justify-center">
+                  <div className="shadow-[16px_16px_0px_0px_#000000] max-w-[400px]">
                     <img
                       src={filteredShow.fields.image.fields.file.url}
                       alt={`${filteredShow.fields.title} programbild`}
-                      className="showdetails__img max-w-lg border-black border-4"
+                      className="showdetails__img h-full object-cover border-black border-4"
                     />
                   </div>
                   <div>

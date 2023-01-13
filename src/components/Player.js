@@ -113,7 +113,7 @@ export default function Player() {
             </div>
           ) : (
             <div>
-              <div className="">Du lyssnar LIVE</div>
+              {isPlaying && <div className="">Du lyssnar LIVE</div>}
               <div className="text-lg text-[var(--light)]">
                 {streamSrcTitle}
               </div>

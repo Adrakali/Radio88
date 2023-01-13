@@ -1,46 +1,50 @@
 import { createContext, useState, useEffect } from "react";
 
-const weekdays = [
-  "söndag",
-  "måndag",
-  "tisdag",
-  "onsdag",
-  "torsdag",
-  "fredag",
-  "lördag",
-];
-
 export const TimeContext = createContext();
 
 export function TimeProvider({ children }) {
-  const [currentTime, setCurrentTime] = useState(
-    new Date().toLocaleTimeString()
-  );
+  const [currentTime, setCurrentTime] = useState();
   const [currentDay, setCurrentDay] = useState();
   const [currentWeek, setCurrentWeek] = useState();
+  const weekdays = [
+    "söndag",
+    "måndag",
+    "tisdag",
+    "onsdag",
+    "torsdag",
+    "fredag",
+    "lördag",
+  ];
 
   useEffect(() => {
+    //Calculating and formatting the current day
     const date = new Date();
-    setCurrentTime(date.toLocaleTimeString());
-    setCurrentDay(weekdays[date.getDay()]);
+    setCurrentTime(date.toLocaleTimeString().substr(0, 5));
+    setCurrentDay(
+      weekdays[date.getDay()].charAt(0).toUpperCase() +
+        weekdays[date.getDay()].slice(1)
+    );
 
+    //Calculating the current week
     var firstJanuary = new Date(date.getFullYear(), 0, 1);
     var dayNr = Math.ceil((date - firstJanuary) / (24 * 60 * 60 * 1000));
     var weekNr = Math.ceil((dayNr + firstJanuary.getDay()) / 7);
-
     if (weekNr % 2 === 0) {
-      setCurrentWeek("even");
+      setCurrentWeek("Even");
     } else {
-      setCurrentWeek("odd");
+      setCurrentWeek("Odd");
     }
-
-    setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString());
-    }, 1000);
   }, []);
 
   return (
-    <TimeContext.Provider value={{ currentTime, currentDay, currentWeek }}>
+    <TimeContext.Provider
+      value={{
+        currentTime,
+        setCurrentTime,
+        currentDay,
+        currentWeek,
+        weekdays,
+      }}>
       {children}
     </TimeContext.Provider>
   );

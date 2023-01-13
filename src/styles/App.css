@@ -132,7 +132,6 @@ a {
   gap: 5em;
   max-height: 500px;
   padding: 0;
-  border-left: var(--border);
 }
 
 .hero h1 {

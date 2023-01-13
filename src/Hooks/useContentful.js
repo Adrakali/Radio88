@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 export default function useContentful() {
   const { REACT_APP_SPACE_ID, REACT_APP_CDA_TOKEN } = process.env;
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const client = createClient({
@@ -17,16 +17,16 @@ export default function useContentful() {
       try {
         await client.getEntries().then((entries) => {
           setData(entries.items);
-          setLoading(false);
+          setIsLoading(false);
           setError(null);
         });
       } catch (error) {
-        setLoading(false);
+        setIsLoading(false);
         setError(error.message);
       }
     };
     getAllEntries();
   }, []);
 
-  return { data, loading, error };
+  return { data, isLoading, error };
 }
