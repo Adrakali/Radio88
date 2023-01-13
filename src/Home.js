@@ -6,14 +6,13 @@ export default function Home() {
   const { currentTime, setCurrentTime, currentDay, currentWeek, weekdays } =
     useContext(TimeContext);
   const { data, isLoading, error } = useContentful();
-  const [showIsLive, setShowIsLive] = useState(false);
+  const [isShowLive, setIsShowLive] = useState(false);
 
+  //Updating the current time
   useEffect(() => {
-    //Updating the current time
-    const interval = setInterval(() => {
+    setInterval(() => {
       setCurrentTime(new Date().toLocaleTimeString());
     }, 1000);
-    return () => clearInterval(interval);
   }, []);
 
   //Sort the data based on start time
@@ -38,9 +37,16 @@ export default function Home() {
         show.fields.ends.substr(11) >= currentTime
       );
     });
-    if (currentShow) return currentShow;
-    if (!currentShow) return setShowIsLive(true);
+    return currentShow;
   }
+
+  // Check if there is a show live
+  useEffect(() => {
+    if (!data) return;
+    if (filterCurrentShow().length > 0) {
+      setIsShowLive(true);
+    }
+  }, []);
 
   // Filter the data to only show todays shows and sort them by start time
   function filterTodaysShows() {
@@ -68,7 +74,8 @@ export default function Home() {
             <div>{currentTime}</div>
             {isLoading && <div>Loading...</div>}
             {error && <div>Error: {error.message}</div>}
-            {data &&
+            {isShowLive ? (
+              data &&
               filterCurrentShow().map((show) => {
                 return (
                   <div key={show.sys.id}>
@@ -80,7 +87,10 @@ export default function Home() {
                     </div>
                   </div>
                 );
-              })}
+              })
+            ) : (
+              <h1>Det är ingen show just nu</h1>
+            )}
           </div>
           <div className="hero__right h-full">
             <h2>Nästa program</h2>
