@@ -24,7 +24,6 @@ export default function Home() {
         ? -1
         : 1;
     });
-  console.log(data);
 
   // Filter the data to only show the current show
   function filterCurrentShow() {
@@ -43,12 +42,23 @@ export default function Home() {
     if (!currentShow) return setShowIsLive(true);
   }
 
-  // useEffect(() => {
-  //   if (!data) return;
-  //   filterCurrentShow();
-  // }, [data]);
-
-  console.log(currentWeek);
+  // Filter the data to only show todays shows and sort them by start time
+  function filterTodaysShows() {
+    if (!data) return;
+    const todaysShows = data
+      .filter((show) => {
+        return (
+          (!show.fields.week || show.fields.week[0] === currentWeek) &&
+          show.fields.day === currentDay &&
+          show.fields.starts &&
+          show.fields.starts.substr(11) >= currentTime
+        );
+      })
+      .sort((a, b) => {
+        return a.fields.starts > b.fields.starts ? -1 : 1;
+      });
+    return todaysShows;
+  }
 
   return (
     <div>
@@ -75,20 +85,13 @@ export default function Home() {
           <div className="hero__right h-full">
             <h2>Nästa program</h2>
             {data &&
-              data
-                .filter(
-                  (show) =>
-                    show.fields.day === currentDay &&
-                    show.fields.starts &&
-                    show.fields.starts.substr(11) >= currentTime
-                )
-                .map((show) => (
-                  <div key={show.sys.id} className="flex">
-                    <p className="font-bold text-lg">
-                      {show.fields.starts.substr(11)} {show.fields.title}
-                    </p>
-                  </div>
-                ))}
+              filterTodaysShows().map((show) => (
+                <div key={show.sys.id} className="flex">
+                  <p className="font-bold text-lg">
+                    {show.fields.starts.substr(11)} {show.fields.title}
+                  </p>
+                </div>
+              ))}
           </div>
         </div>
       </section>
