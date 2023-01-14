@@ -7,6 +7,7 @@ export default function Home() {
     useContext(TimeContext);
   const { data, isLoading, error } = useContentful();
   const [isShowLive, setIsShowLive] = useState(false);
+  const [isCancelled, setIsCancelled] = useState(false);
 
   // Get the current time
   useEffect(() => {
@@ -40,8 +41,7 @@ export default function Home() {
     }
   }, [data, currentTime, currentDay, currentWeek]);
 
-  const [isCancelled, setIsCancelled] = useState(false);
-
+  // Check if the current show is cancelled
   useEffect(() => {
     if (!data) return;
     const currentShow = filterCurrentShow();
@@ -70,16 +70,22 @@ export default function Home() {
 
   return (
     <div>
+      {isCancelled && filterCurrentShow()[0] && (
+        <section className=" bg-red-300 border-b-2 border-black">
+          <div className="container py-2">
+            <p className="pb-0">
+              {filterCurrentShow()[0].fields.title} är inställd idag
+            </p>
+          </div>
+        </section>
+      )}
+
       <section className="hero">
         <div className="container flex">
           <div className="hero__left flex-grow">
             <div>{currentTime}</div>
             {isLoading && <div>Loading...</div>}
             {error && <div>Error: {error.message}</div>}
-            {isCancelled && filterCurrentShow()[0] && (
-              <h1>{filterCurrentShow()[0].fields.title} is Cancelled</h1>
-            )}
-
             {isShowLive && !isCancelled ? (
               data &&
               filterCurrentShow().map((show) => {
@@ -98,17 +104,19 @@ export default function Home() {
               <h1>Det är ingen show just nu</h1>
             )}
           </div>
-          <div className="hero__right h-full">
-            <h2>Nästa program</h2>
-            {data &&
-              filterTodaysShows().map((show) => (
-                <div key={show.sys.id} className="flex">
-                  <p className="font-bold text-lg">
-                    {show.fields.starts.substr(11)} {show.fields.title}
-                  </p>
-                </div>
-              ))}
-          </div>
+          {filterTodaysShows() && filterTodaysShows().length > 0 ? (
+            <div className="hero__right h-full">
+              <h2>Nästa program</h2>
+              {data &&
+                filterTodaysShows().map((show) => (
+                  <div key={show.sys.id} className="flex">
+                    <p className="font-bold text-lg">
+                      {show.fields.starts.substr(11)} {show.fields.title}
+                    </p>
+                  </div>
+                ))}
+            </div>
+          ) : null}
         </div>
       </section>
     </div>

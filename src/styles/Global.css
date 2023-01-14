@@ -29,7 +29,6 @@ html {
 }
 
 p {
-  margin-bottom: 1rem;
   color: black;
 }
 
@@ -89,12 +88,6 @@ main {
 section {
   padding: 0 2em;
 }
-
-/* .container {
-  margin-inline: auto;
-  max-width: var(--container-width);
-  padding: 4em 0;
-} */
 
 img {
   max-width: 100%;
