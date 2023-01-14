@@ -8,19 +8,13 @@ export default function Home() {
   const { data, isLoading, error } = useContentful();
   const [isShowLive, setIsShowLive] = useState(false);
 
-  //Updating the current time
-  setInterval(() => {
-    setCurrentTime(new Date().toLocaleTimeString());
-  }, 1000);
-
-  //Sort the data based on start time
-  data &&
-    data.sort((a, b) => {
-      return weekdays.indexOf(a.fields.starts) <
-        weekdays.indexOf(b.fields.starts)
-        ? -1
-        : 1;
-    });
+  // Get the current time
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(new Date().toLocaleTimeString());
+    }, 1000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   // Filter the data to only show the current show
   function filterCurrentShow() {
@@ -38,10 +32,21 @@ export default function Home() {
     return currentShow;
   }
 
+  // Check if there is a show live
   useEffect(() => {
     if (!data) return;
     if (filterCurrentShow().length > 0) {
       setIsShowLive(true);
+    }
+  }, [data, currentTime, currentDay, currentWeek]);
+
+  const [isCancelled, setIsCancelled] = useState(false);
+
+  useEffect(() => {
+    if (!data) return;
+    const currentShow = filterCurrentShow();
+    if (currentShow.length > 0 && currentShow[0].fields.cancelled) {
+      setIsCancelled(true);
     }
   }, [data, currentTime, currentDay, currentWeek]);
 
@@ -58,7 +63,7 @@ export default function Home() {
         );
       })
       .sort((a, b) => {
-        return a.fields.starts > b.fields.starts ? -1 : 1;
+        return a.fields.starts.substr(11) < b.fields.starts.substr(11) ? -1 : 1;
       });
     return todaysShows;
   }
@@ -71,7 +76,11 @@ export default function Home() {
             <div>{currentTime}</div>
             {isLoading && <div>Loading...</div>}
             {error && <div>Error: {error.message}</div>}
-            {isShowLive ? (
+            {isCancelled && filterCurrentShow()[0] && (
+              <h1>{filterCurrentShow()[0].fields.title} is Cancelled</h1>
+            )}
+
+            {isShowLive && !isCancelled ? (
               data &&
               filterCurrentShow().map((show) => {
                 return (
