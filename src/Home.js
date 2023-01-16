@@ -1,13 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { TimeContext } from "./Contexts/TimeContext";
+import { StatusContext } from "./Contexts/StatusContext";
 import useContentful from "./Hooks/useContentful";
 
 export default function Home() {
+  const { data, isLoading, error } = useContentful();
   const { currentTime, setCurrentTime, currentDay, currentWeek, weekdays } =
     useContext(TimeContext);
-  const { data, isLoading, error } = useContentful();
-  const [isShowLive, setIsShowLive] = useState(false);
-  const [isCancelled, setIsCancelled] = useState(false);
+  const { isLive, setIsLive, isCancelled, setIsCancelled } =
+    useContext(StatusContext);
 
   // Get the current time
   useEffect(() => {
@@ -37,7 +38,7 @@ export default function Home() {
   useEffect(() => {
     if (!data) return;
     if (filterCurrentShow().length > 0) {
-      setIsShowLive(true);
+      setIsLive(true);
     }
   }, [data, currentTime, currentDay, currentWeek]);
 
@@ -86,16 +87,20 @@ export default function Home() {
             <div>{currentTime}</div>
             {isLoading && <div>Loading...</div>}
             {error && <div>Error: {error.message}</div>}
-            {isShowLive && !isCancelled ? (
+            {isLive && !isCancelled ? (
               data &&
               filterCurrentShow().map((show) => {
                 return (
                   <div key={show.sys.id}>
                     <p>Just nu på Radio 88</p>
-                    <h1>{show.fields.title}</h1>
-                    <p>{show.fields.description}</p>
-                    <div className="w-40">
-                      <img src={show.fields.image.fields.file.url} />
+                    <div className="flex space-x-6 mb-10">
+                      <div className="w-40">
+                        <img src={show.fields.image.fields.file.url} />
+                      </div>
+                      <div>
+                        <h1>{show.fields.title}</h1>
+                        <p>{show.fields.description}</p>
+                      </div>
                     </div>
                   </div>
                 );

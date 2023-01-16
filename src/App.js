@@ -7,35 +7,30 @@ import Contact from "./Contact";
 import Shows from "./Shows";
 import Show from "./Show";
 import Schedule from "./Schedule";
-import { StreamContext } from "./Contexts/StreamContext";
+import { StreamProvider } from "./Contexts/StreamContext";
 import { TimeProvider } from "./Contexts/TimeContext";
+import { StatusProvider } from "./Contexts/StatusContext";
 
 function App() {
-  const [streamSrc, setStreamSrc] = useState(
-    "https://streaming.943.se/radio88"
-  );
-  const [streamSrcTitle, setStreamSrcTitle] = useState(
-    "Vi spelar musiken som du glömt att du kommer ihåg"
-  );
-
   return (
-    <TimeProvider>
-      <StreamContext.Provider
-        value={{ streamSrc, setStreamSrc, streamSrcTitle, setStreamSrcTitle }}>
-        <BrowserRouter>
-          <Nav />
-          <main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="program" element={<Shows />} />
-              <Route path="kontakt" element={<Contact />} />
-              <Route path="tabla" element={<Schedule />} />
-              <Route path="/program/:id" element={<Show />} />
-            </Routes>
-          </main>
-        </BrowserRouter>
-      </StreamContext.Provider>
-    </TimeProvider>
+    <BrowserRouter>
+      <TimeProvider>
+        <StatusProvider>
+          <StreamProvider>
+            <Nav />
+            <main>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="program" element={<Shows />} />
+                <Route path="kontakt" element={<Contact />} />
+                <Route path="tabla" element={<Schedule />} />
+                <Route path="/program/:id" element={<Show />} />
+              </Routes>
+            </main>
+          </StreamProvider>
+        </StatusProvider>
+      </TimeProvider>
+    </BrowserRouter>
   );
 }
 export default App;

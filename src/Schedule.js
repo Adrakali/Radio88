@@ -1,38 +1,33 @@
-import React, { useState, useEffect, useContext } from "react";
-import useContentful from "./Hooks/useContentful";
+import React, { useContext } from "react";
+import ScheduleListItem from "./components/ScheduleListItem";
 import { TimeContext } from "./Contexts/TimeContext";
 
 function Schedule() {
-  const { data, isLoading, error } = useContentful();
-  const { weekdays } = useContext(TimeContext);
+  const { currentWeek } = useContext(TimeContext);
 
-  //Sort the data based on start time
-  data &&
-    data.sort((a, b) => {
-      return weekdays.indexOf(a.fields.day) > weekdays.indexOf(b.fields.day)
-        ? -1
-        : 1;
-    });
+  const weekdays = [
+    "Måndag",
+    "Tisdag",
+    "Onsdag",
+    "Torsdag",
+    "Fredag",
+    "Lördag",
+    "Söndag",
+  ];
 
-  console.log(data);
   return (
     <div className="container">
       <h1>Tablå</h1>
+      <p>Denna vecka är {currentWeek === "Odd" ? "udda" : "jämn"}</p>
       <div>
-        {error && <div>{error.message}</div>}
-        {isLoading && <p>Laddar...</p>}
-        {data &&
-          data.map((show) => {
-            return (
-              <div key={show.sys.id}>
-                <h2>{show.fields.day}</h2>
-                <p>{show.fields.title}</p>
-                <p>{show.fields.starts.substr(11)}</p>
-                <p>{show.fields.ends.substr(11)}</p>
-                <p>{show.fields.oddWeeks}</p>
-              </div>
-            );
-          })}
+        {weekdays.map((weekday) => {
+          return (
+            <div key={weekday}>
+              <h2>{weekday}</h2>
+              <ScheduleListItem weekday={weekday} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
