@@ -3,6 +3,7 @@ import { TimeContext } from "./Contexts/TimeContext";
 import { StatusContext } from "./Contexts/StatusContext";
 import useContentful from "./Hooks/useContentful";
 import { Link } from "react-router-dom";
+import FacebookPosts from "./components/FacebookPosts";
 
 export default function Home() {
   const { data, isLoading, error } = useContentful();
@@ -62,6 +63,7 @@ export default function Home() {
       .filter((show) => {
         return (
           (!show.fields.week || show.fields.week[0] === currentWeek) &&
+          !show.fields.cancelled &&
           show.fields.day === currentDay &&
           show.fields.starts &&
           show.fields.starts.substr(11) >= currentTime
@@ -117,18 +119,19 @@ export default function Home() {
               <h2>Nästa program</h2>
               {data &&
                 filterTodaysShows().map((show) => (
-                  <Link to={`/program/${show.fields.slug}`}>
-                    <div key={show.sys.id} className="flex">
+                  <div key={show.sys.id} className="flex">
+                    <Link to={`/program/${show.fields.slug}`}>
                       <p className="font-bold text-lg">
                         {show.fields.starts.substr(11)} {show.fields.title}
                       </p>
-                    </div>
-                  </Link>
+                    </Link>
+                  </div>
                 ))}
             </div>
           ) : null}
         </div>
       </section>
+      <FacebookPosts />
     </div>
   );
 }
