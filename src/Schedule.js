@@ -16,20 +16,22 @@ function Schedule() {
   ];
 
   return (
-    <div className="container">
-      <h1>Tablå</h1>
-      <p>Denna vecka är {currentWeek === "Odd" ? "udda" : "jämn"}</p>
-      <div>
-        {weekdays.map((weekday) => {
-          return (
-            <div key={weekday}>
-              <h2>{weekday}</h2>
-              <ScheduleListItem weekday={weekday} />
-            </div>
-          );
-        })}
+    <section>
+      <div className="container">
+        <h1>Tablå</h1>
+        <p>Denna vecka är {currentWeek === "Odd" ? "udda" : "jämn"}</p>
+        <div>
+          {weekdays.map((weekday) => {
+            return (
+              <div key={weekday} className="mb-12">
+                <h2 className="bg-black text-lbrown px-4 py-2">{weekday}</h2>
+                <ScheduleListItem weekday={weekday} />
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 

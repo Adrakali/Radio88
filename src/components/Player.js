@@ -94,29 +94,31 @@ export default function Player() {
   }
 
   return (
-    <div className="player">
-      <button onClick={playRadio} className="play-btn">
+    <div className="player border-black border-t-[3px] bg-dbrown text-white h-full col-span-6 flex items-center">
+      <button
+        onClick={playRadio}
+        className="play-box-content-box py-2 px-4 bg-transparent h-full w-[6rem] text-4xl font-medium cursor-pointer border-r-[3px] border-black">
         {isPlaying ? (
           <i className="fa-solid fa-pause"></i>
         ) : (
           <i className="fa-solid fa-play"></i>
         )}
       </button>
-      <div className="player__title flex">
-        <div className="secondary-txt-clr">
+      <div className="font-medium h-16 flex justify-between items-center px-4 py-2 flex-grow">
+        <div>
           {streamSrc !== liveStream ? (
             <div className="flex-grow">
-              <div>Du lyssnar på </div>
-              <div className="text-lg text-[var(--light)]">
-                {streamSrcTitle}
-              </div>
+              <div className="text-primary ">Du lyssnar på </div>
+              <div className="text-lg font-bold">{streamSrcTitle}</div>
             </div>
           ) : (
             <div>
-              {isPlaying && <div className="">Du lyssnar LIVE</div>}
-              <div className="text-lg text-[var(--light)]">
-                {streamSrcTitle}
-              </div>
+              {isPlaying && (
+                <div className="bg-accent text-lbrown inline py-1 px-2">
+                  Du lyssnar LIVE
+                </div>
+              )}
+              <div className="text-lg font-bold">{streamSrcTitle}</div>
             </div>
           )}
         </div>
@@ -125,29 +127,25 @@ export default function Player() {
         {streamSrc !== liveStream && (
           <div className="player__seek mx-8 flex items-center justify-center w-3/5">
             {isLoading ? (
-              <div className="text-left">Loading...</div>
+              <div className="text-left">Laddar...</div>
             ) : (
               <div className="w-full flex items-center">
-                <span className="text-sm text-[var(--light)]">
-                  {calcTime(currentTime)}
-                </span>
+                <span className="text-sm">{calcTime(currentTime)}</span>
                 <input
                   ref={progressBar}
                   defaultValue="0"
                   type="range"
-                  className="player__seek w-full mx-2"
+                  className="player__seek w-full mx-2 appearance-none h-1 bg-mbrown rounded cursor-pointer"
                   onChange={progressBarUpdate}
                 />
-                <span className="text-sm text-[var(--light)]">
-                  {calcTime(duration)}
-                </span>
+                <span className="text-sm">{calcTime(duration)}</span>
               </div>
             )}
           </div>
         )}
         {streamSrc !== liveStream && (
           <button
-            className="player__live-button btn px-4 py-1"
+            className="player__live-button text-black btn px-4 py-1"
             onClick={playLive}
             style={{ display: { display } }}>
             Lyssna Live
@@ -157,11 +155,15 @@ export default function Player() {
 
       {/* Volume ========================== */}
 
-      <div className="player__vol-container">
-        <button className="volume-btn">
+      <div className="player__vol-container h-full bg-primary box-content-box p-2 pr-4 text-black flex items-center border-l-[3px] border-black">
+        <button className="volume-btn w-6 text-left text-light text-lg bg-transparent cursor-pointer p-2 mr-2">
           <i className={volumeIcon}></i>
         </button>
-        <input id="player__vol" type="range" onChange={changeVolume} />
+        <input
+          className="appearance-none h-1 bg-mbrown rounded cursor-pointer"
+          type="range"
+          onChange={changeVolume}
+        />
       </div>
     </div>
   );

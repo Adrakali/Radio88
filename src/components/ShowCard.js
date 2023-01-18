@@ -2,31 +2,51 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { StreamContext } from "../Contexts/StreamContext";
 
-export default function ShowCard(props) {
+export default function ShowCard({
+  streamUrl,
+  title,
+  day,
+  starts,
+  desc,
+  img,
+  slug,
+  id,
+}) {
   const { setStreamSrc, setStreamSrcTitle } = useContext(StreamContext);
   const handleButtonClick = (event) => {
-    setStreamSrc(props.streamUrl);
-    setStreamSrcTitle(props.title);
+    setStreamSrc(streamUrl);
+    setStreamSrcTitle(title);
     event.preventDefault();
   };
+
   return (
-    <Link to={`/program/${props.slug}`}>
-      <article className="card relative h-[550px]" key={props.id}>
-        <img src={props.img} alt={props.title} className="card__img mb-4" />
-        <h2 className="text-3xl">{props.title}</h2>
-        <div className="flex">
-          <p className="text-base mb-4 font-bold text-gray-600">
-            {`${props.day.charAt(0).toUpperCase() + props.day.slice(1)}ar ${
-              props.starts
-            }`}
-          </p>
+    <Link to={`/program/${slug}`}>
+      <article
+        className="card relative shadow-sm bg-white border-black border-[3px]"
+        key={id}>
+        {img && (
+          <img
+            src={img}
+            alt={title}
+            className="card__img w-full object-cover h-[20rem]"
+          />
+        )}
+        <div className="p-6">
+          <h2 className="text-3xl">{title}</h2>
+          <div className="flex">
+            <p className="text-base mb-4 font-bold text-gray-600">
+              {`${day}ar ${starts}`}
+            </p>
+          </div>
+          <p className="pb-8 text-lg truncate">{desc}</p>
+          {streamUrl && (
+            <button
+              className="btn text-base cursor-pointer px-4 py-2"
+              onClick={handleButtonClick}>
+              Lyssna på senaste avsnittet av {title}
+            </button>
+          )}
         </div>
-        <p className="pb-24 text-lg truncate">{props.desc}</p>
-        <button
-          className="btn text-base w-full cursor-pointer py-8 absolute bottom-0 left-0"
-          onClick={handleButtonClick}>
-          Lyssna på senaste avsnittet av {props.title}
-        </button>
       </article>
     </Link>
   );

@@ -5,14 +5,21 @@ import ShowCard from "./components/ShowCard";
 export default function Shows() {
   const { data, isLoading, error } = useContentful();
 
+  data &&
+    data.sort((a, b) => {
+      return a.fields.title < b.fields.title ? -1 : 1;
+    });
+
   return (
     <section>
-      <div className="page-header">
+      <div className="page-header container">
         <h1>Program</h1>
       </div>
       <div className="container">
         <div className="container grid grid-cols-1 lg:grid-cols-3 mt-10 gap-8">
-          {isLoading && <h1 className="text-center col-span-3">Laddar sidan...</h1>}
+          {isLoading && (
+            <h1 className="text-center col-span-3">Laddar sidan...</h1>
+          )}
           {error && <div>{error}</div>}
           {data &&
             data.map((show) => (
@@ -22,9 +29,9 @@ export default function Shows() {
                 slug={show.fields.slug}
                 title={show.fields.title}
                 day={show.fields.day}
-                starts={show.fields.starts && show.fields.starts.substr(11)}
+                starts={show.fields.starts.substr(11)}
                 desc={show.fields.description}
-                img={show.fields.image.fields.file.url}
+                img={show.fields.image && show.fields.image.fields.file.url}
                 streamUrl={show.fields.streamurl}
               />
             ))}

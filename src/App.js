@@ -1,5 +1,5 @@
-import "./styles/App.css";
-import React, { useState } from "react";
+import "./styles/Global.css";
+import React from "react";
 import Nav from "./components/Nav";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";

@@ -2,20 +2,24 @@ import React, { useContext, useEffect } from "react";
 import { TimeContext } from "./Contexts/TimeContext";
 import { StatusContext } from "./Contexts/StatusContext";
 import useContentful from "./Hooks/useContentful";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const { data, isLoading, error } = useContentful();
-  const { currentTime, setCurrentTime, currentDay, currentWeek, weekdays } =
+  const { currentTime, setCurrentTime, currentDay, currentWeek } =
     useContext(TimeContext);
   const { isLive, setIsLive, isCancelled, setIsCancelled } =
     useContext(StatusContext);
 
   // Get the current time
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString());
+    const interval = setInterval(() => {
+      const date = new Date();
+      if (date.getMinutes() === 0 && date.getSeconds() === 0) {
+        setCurrentTime(date.toLocaleTimeString());
+      }
     }, 1000);
-    return () => clearInterval(intervalId);
+    return () => clearInterval(interval);
   }, []);
 
   // Filter the data to only show the current show
@@ -71,7 +75,7 @@ export default function Home() {
 
   return (
     <div>
-      {isCancelled && filterCurrentShow()[0] && (
+      {filterCurrentShow() && isCancelled && filterCurrentShow()[0] && (
         <section className=" bg-red-300 border-b-2 border-black">
           <div className="container py-2">
             <p className="pb-0">
@@ -80,11 +84,9 @@ export default function Home() {
           </div>
         </section>
       )}
-
       <section className="hero">
         <div className="container flex">
           <div className="hero__left flex-grow">
-            <div>{currentTime}</div>
             {isLoading && <div>Loading...</div>}
             {error && <div>Error: {error.message}</div>}
             {isLive && !isCancelled ? (
@@ -94,12 +96,13 @@ export default function Home() {
                   <div key={show.sys.id}>
                     <p>Just nu på Radio 88</p>
                     <div className="flex space-x-6 mb-10">
-                      <div className="w-40">
-                        <img src={show.fields.image.fields.file.url} />
-                      </div>
+                      {show.fields.image && (
+                        <div className="w-40">
+                          <img src={show.fields.image.fields.file.url} />
+                        </div>
+                      )}
                       <div>
                         <h1>{show.fields.title}</h1>
-                        <p>{show.fields.description}</p>
                       </div>
                     </div>
                   </div>
@@ -114,11 +117,13 @@ export default function Home() {
               <h2>Nästa program</h2>
               {data &&
                 filterTodaysShows().map((show) => (
-                  <div key={show.sys.id} className="flex">
-                    <p className="font-bold text-lg">
-                      {show.fields.starts.substr(11)} {show.fields.title}
-                    </p>
-                  </div>
+                  <Link to={`/program/${show.fields.slug}`}>
+                    <div key={show.sys.id} className="flex">
+                      <p className="font-bold text-lg">
+                        {show.fields.starts.substr(11)} {show.fields.title}
+                      </p>
+                    </div>
+                  </Link>
                 ))}
             </div>
           ) : null}
