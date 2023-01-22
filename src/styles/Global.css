@@ -8,8 +8,8 @@
   --medium: #fbb131;
   --light: #fff8dc;
 
-  --font-heading: "Big Shoulders Display", cursive;
-  --font-body: "Lato", sans-serif;
+  --font-heading: "Bebas Neue", sans-serif;
+  --font-body: "Karla", sans-serif;
 
   --border: 3px solid black;
 
@@ -22,6 +22,9 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
 }
 
 html {

@@ -6,8 +6,8 @@ module.exports = {
       center: true,
     },
     fontFamily: {
-      sans: ["Big Shoulders Display", "sans-serif"],
-      body: ["Lato", "sans-serif"],
+      sans: ["Bebas neue", "sans-serif"],
+      body: ["Karla", "sans-serif"],
     },
     boxShadow: {
       sm: "5px 5px 0px 0px #000000",
@@ -19,6 +19,9 @@ module.exports = {
         primary: "#fbb131",
         accent: "#790027",
         lbrown: "#fff8dc",
+      },
+      gridTemplateColumns: {
+        fbcard: "0.5fr 1fr",
       },
     },
   },

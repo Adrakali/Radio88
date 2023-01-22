@@ -17,7 +17,7 @@ function Schedule() {
 
   return (
     <section>
-      <div className="container">
+      <div className="container max-w-4xl">
         <h1>Tablå</h1>
         <p>Denna vecka är {currentWeek === "Odd" ? "udda" : "jämn"}</p>
         <div>

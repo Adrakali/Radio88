@@ -94,7 +94,7 @@ export default function Player() {
   }
 
   return (
-    <div className="player border-black border-t-[3px] bg-dbrown text-white h-full col-span-6 flex items-center">
+    <div className="player border-black border-t-[3px] text-black h-full col-span-6 flex items-center">
       <button
         onClick={playRadio}
         className="play-box-content-box py-2 px-4 bg-transparent h-full w-[6rem] text-4xl font-medium cursor-pointer border-r-[3px] border-black">
@@ -114,7 +114,7 @@ export default function Player() {
           ) : (
             <div>
               {isPlaying && (
-                <div className="bg-accent text-lbrown inline py-1 px-2">
+                <div className="bg-accent text-white font-bold inline py-1 px-2">
                   Du lyssnar LIVE
                 </div>
               )}
@@ -135,7 +135,7 @@ export default function Player() {
                   ref={progressBar}
                   defaultValue="0"
                   type="range"
-                  className="player__seek w-full mx-2 appearance-none h-1 bg-mbrown rounded cursor-pointer"
+                  className="player__seek w-full mx-2 appearance-none h-1 rounded cursor-pointer"
                   onChange={progressBarUpdate}
                 />
                 <span className="text-sm">{calcTime(duration)}</span>
@@ -160,7 +160,7 @@ export default function Player() {
           <i className={volumeIcon}></i>
         </button>
         <input
-          className="appearance-none h-1 bg-mbrown rounded cursor-pointer"
+          className="appearance-none h-1 bg-mbrown cursor-pointer"
           type="range"
           onChange={changeVolume}
         />
