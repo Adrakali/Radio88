@@ -17,13 +17,13 @@ export default function Nav() {
           </Link>
         </div>
         <ul className="nav__links font-sans text-2xl bg-black text-white flex justify-end items-center col-span-6 px-4">
-          <li className="pl-5">
+          <li className="pl-5 mt-1 -mb-1">
             <Link to="/program">Program</Link>
           </li>
-          <li className="pl-5">
+          <li className="pl-5 mt-1 -mb-1">
             <Link to="/kontakt">Kontakt</Link>
           </li>
-          <li className="pl-5">
+          <li className="pl-5 mt-1 -mb-1">
             <Link to="/tabla">Tablå</Link>
           </li>
         </ul>

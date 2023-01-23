@@ -9,26 +9,23 @@ import Show from "./Show";
 import Schedule from "./Schedule";
 import { StreamProvider } from "./Contexts/StreamContext";
 import { TimeProvider } from "./Contexts/TimeContext";
-import { StatusProvider } from "./Contexts/StatusContext";
 
 function App() {
   return (
     <BrowserRouter>
       <TimeProvider>
-        <StatusProvider>
-          <StreamProvider>
-            <Nav />
-            <main>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="program" element={<Shows />} />
-                <Route path="kontakt" element={<Contact />} />
-                <Route path="tabla" element={<Schedule />} />
-                <Route path="/program/:id" element={<Show />} />
-              </Routes>
-            </main>
-          </StreamProvider>
-        </StatusProvider>
+        <StreamProvider>
+          <Nav />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="program" element={<Shows />} />
+              <Route path="kontakt" element={<Contact />} />
+              <Route path="tabla" element={<Schedule />} />
+              <Route path="/program/:id" element={<Show />} />
+            </Routes>
+          </main>
+        </StreamProvider>
       </TimeProvider>
     </BrowserRouter>
   );

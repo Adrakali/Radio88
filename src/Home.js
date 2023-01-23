@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { TimeContext } from "./Contexts/TimeContext";
-import { StatusContext } from "./Contexts/StatusContext";
+import { StreamContext } from "./Contexts/StreamContext";
 import useContentful from "./Hooks/useContentful";
 import { Link } from "react-router-dom";
 import FacebookPosts from "./components/FacebookPosts";
@@ -9,8 +9,14 @@ export default function Home() {
   const { data, isLoading, error } = useContentful();
   const { currentTime, setCurrentTime, currentDay, currentWeek } =
     useContext(TimeContext);
-  const { isLive, setIsLive, isCancelled, setIsCancelled } =
-    useContext(StatusContext);
+  const {
+    isLive,
+    setIsLive,
+    isCancelled,
+    setIsCancelled,
+    playRadio,
+    isPlaying,
+  } = useContext(StreamContext);
 
   // Get the current time
   useEffect(() => {
@@ -75,6 +81,10 @@ export default function Home() {
     return todaysShows;
   }
 
+  function handleClick() {
+    console.log("click");
+  }
+
   return (
     <div>
       {filterCurrentShow() && isCancelled && filterCurrentShow()[0] && (
@@ -94,7 +104,7 @@ export default function Home() {
         />
         <div className="hero-overlay bg-[#790027] absolute inset-0 opacity-90 -z-10"></div>
         <div className="container">
-          <div className="hero__left flex justify-center items-center">
+          <div className="hero__left flex flex-col justify-center text-white items-center">
             {isLoading && <div>Loading...</div>}
             {error && <div>Error: {error.message}</div>}
             {isLive && !isCancelled ? (
@@ -102,7 +112,7 @@ export default function Home() {
               filterCurrentShow().map((show) => {
                 return (
                   <div key={show.sys.id}>
-                    <p>Just nu på Radio 88</p>
+                    <p className="text-white font-bold">Just nu på Radio 88</p>
                     <div className="flex space-x-6 mb-10">
                       {show.fields.image && (
                         <div className="w-40">
@@ -121,7 +131,13 @@ export default function Home() {
                 <h1 className="text-7xl mb-16 w-[27ch] drop-shadow-[4px_4px_0px_#000000]">
                   Vi spelar musiken som du glömt att du kommer ihåg
                 </h1>
-                <button className="px-16 py-4 bg-primary border-black border-4 uppercase font-extrabold text-black drop-shadow-[4px_4px_0px_#000000]">
+              </div>
+            )}
+            {!isPlaying && (
+              <div>
+                <button
+                  onClick={playRadio}
+                  className="px-16 py-4 bg-primary border-black border-4 uppercase font-extrabold text-black drop-shadow-[4px_4px_0px_#000000]">
                   <i className="fa-solid fa-play mr-4"></i>Lyssna nu
                 </button>
               </div>
@@ -138,13 +154,13 @@ export default function Home() {
               <div className="flex gap-20">
                 {data &&
                   filterTodaysShows().map((show) => (
-                    <div key={show.sys.id} className="flex">
+                    <div key={show.sys.id} className="flex mt-1">
                       <Link to={`/program/${show.fields.slug}`}>
                         <p className="font-bold text-primary">
                           {show.fields.starts.substr(11)}
-                          <p className="text-white text-3xl font-sans">
+                          <span className="text-white block text-3xl font-sans">
                             {show.fields.title}
-                          </p>
+                          </span>
                         </p>
                       </Link>
                     </div>

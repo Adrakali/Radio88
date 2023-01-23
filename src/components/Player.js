@@ -2,42 +2,25 @@ import { useState, useEffect, useContext, useRef } from "react";
 import { StreamContext } from "../Contexts/StreamContext";
 
 export default function Player() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
   const [volumeIcon, setVolumeIcon] = useState("fa-solid fa-volume-low");
   const [display] = useState(false);
-  const { streamSrc, setStreamSrc, streamSrcTitle, setStreamSrcTitle } =
-    useContext(StreamContext);
-  const liveStream = "https://streaming.943.se/radio88";
-
-  const audio = useRef(new Audio());
-
-  useEffect(() => {
-    audio.current.src = streamSrc;
-    audio.current.load();
-    streamSrc !== liveStream
-      ? setIsPlaying(true)
-      : setStreamSrcTitle("Vi spelar musiken som du glömt att du kommer ihåg");
-  }, [streamSrc]);
-
-  useEffect(() => {
-    audio.current.readyState !== 4 ? setIsLoading(true) : setIsLoading(false);
-  }, [streamSrc, audio.current.readyState]);
-
-  // PLAY RADIO ========================
-  function playRadio() {
-    setStreamSrc(audio.current.src);
-    setIsPlaying((play) => !play);
-  }
-
-  function playLive() {
-    setStreamSrc(liveStream);
-    setIsPlaying(true);
-  }
-
-  useEffect(() => {
-    isPlaying ? audio.current.play() : audio.current.pause();
-  }, [isPlaying, streamSrc]);
+  const {
+    playRadio,
+    isLoading,
+    playLive,
+    audio,
+    liveStream,
+    isPlaying,
+    setIsPlaying,
+    isLive,
+    setIsLive,
+    isCancelled,
+    setIsCancelled,
+    streamSrc,
+    setStreamSrc,
+    streamSrcTitle,
+    setStreamSrcTitle,
+  } = useContext(StreamContext);
 
   // VOLUME ========================
 
