@@ -94,7 +94,7 @@ export default function Player() {
                   Du lyssnar LIVE
                 </div>
               )}
-              <div className="lg:text-lg text-sm hidden lg:block font-bold">{streamSrcTitle}</div>
+              <div className="lg:text-2xl text-sm hidden font-sans lg:block">{streamSrcTitle}</div>
             </div>
           )}
         </div>

@@ -3,36 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --dark-brown: #3d2414;
-  --light-brown: #603d27;
-  --medium: #fbb131;
-  --light: #fff8dc;
-
   --font-heading: "Bebas Neue", sans-serif;
   --font-body: "Karla", sans-serif;
 
   --border: 3px solid black;
-
-  --container-width: 1280px;
 }
 
 *,
 *::after,
 *::before {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smoothing: antialiased;
-}
-
-html {
-  font-size: 100%;
-}
-
-p {
-  color: black;
 }
 
 h1,
@@ -40,9 +22,8 @@ h2,
 h3,
 h4,
 h5 {
-  margin: 0.2em 0 0.2em;
   font-family: var(--font-heading);
-  /* line-height: 1.3; */
+  line-height: 1;
 }
 
 h1 {
@@ -66,15 +47,6 @@ h5 {
   font-size: 1.25rem;
 }
 
-small,
-.text_small {
-  font-size: 0.8rem;
-}
-
-.secondary-txt-clr {
-  color: var(--medium);
-}
-
 body {
   font-family: var(--font-body);
   background-color: var(--light);
@@ -83,28 +55,13 @@ body {
   position: relative;
 }
 
-main {
-  margin: auto;
-  height: 100%;
-}
-
-img {
-  max-width: 100%;
-}
-
 @layer components {
-  button {
+  .btn {
     @apply cursor-pointer;
+    @apply border-black;
+    @apply border-[3px];
+    @apply font-bold;
   }
-}
-
-.btn {
-  border: 3px solid black;
-  outline: none;
-  font-family: var(--font-body);
-  font-weight: 700;
-  /* font-size: 1rem; */
-  /* padding: 0.5em 2em; */
 }
 
 input[type="range"]::-webkit-slider-thumb {

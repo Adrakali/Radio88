@@ -100,7 +100,7 @@ export default function Home() {
 
       <section className="hero relative flex h-96 py-60 items-center justify-center overflow-hidden border-b-[3px] border-black">
         <img
-          src="images/hero-bg.jpg"
+          src="images/mick-haupt-FGrGhzaSl0s-unsplash.jpg"
           className="hero-bg absolute object-cover inset-0 -z-20"
         />
         <div className="hero-overlay bg-[#790027] absolute inset-0 opacity-95 -z-10"></div>
@@ -113,14 +113,14 @@ export default function Home() {
               filterCurrentShow().map((show) => {
                 return (
                   <div key={show.sys.id}>
-                    <div className="flex items-center space-x-6 mb-10">
+                    <div className="flex items-center object-contain space-x-6 mb-10">
                       {show.fields.image && (
                         <div className="w-96 shadow-md">
                           <img src={show.fields.image.fields.file.url} />
                         </div>
                       )}
                       <div>
-                        <p className="text-white font-bold">
+                        <p className="font-bold mb-4 text-2xl text-primary">
                           Just nu på Radio 88
                         </p>
                         <h1 className="drop-shadow-[4px_4px_0px_#000000]">
@@ -160,7 +160,7 @@ export default function Home() {
           {filterTodaysShows() && filterTodaysShows().length > 0 ? (
             <section className="bg-black py-4 px-8 sticky top-[131px]">
               <div className="container">
-                <div className="hero__right bg-black text-white w-full pb-2">
+                <div className="hero__right text-white w-full pb-2">
                   <h2>Dagens program</h2>
                   <div>
                     {data &&
@@ -170,8 +170,8 @@ export default function Home() {
                             <div className="flex items-center gap-2 text-primary">
                               <i className="fa-solid fa-clock text-sm"></i>
                               <p className="font-bold text-primary text-lg">
-                              {show.fields.starts.substr(11)}
-                            </p>
+                                {show.fields.starts.substr(11)}
+                              </p>
                             </div>
                             <p className="text-white block text-3xl font-sans">
                               {show.fields.title}
