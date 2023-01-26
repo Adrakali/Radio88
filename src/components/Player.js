@@ -11,15 +11,8 @@ export default function Player() {
     audio,
     liveStream,
     isPlaying,
-    setIsPlaying,
-    isLive,
-    setIsLive,
-    isCancelled,
-    setIsCancelled,
     streamSrc,
-    setStreamSrc,
     streamSrcTitle,
-    setStreamSrcTitle,
   } = useContext(StreamContext);
 
   // VOLUME ========================
@@ -77,7 +70,7 @@ export default function Player() {
   }
 
   return (
-    <div className="player border-black border-t-[3px] text-black h-full col-span-6 flex items-center">
+    <div className="player border-black lg:border-r-[3px] lg:border-l-[3px] border-t-[3px] text-black h-full col-span-2 lg:col-span-1 flex items-center">
       <button
         onClick={playRadio}
         className="play-box-content-box py-2 px-4 bg-transparent h-full w-[6rem] text-4xl font-medium cursor-pointer border-r-[3px] border-black">
@@ -91,17 +84,17 @@ export default function Player() {
         <div>
           {streamSrc !== liveStream ? (
             <div className="flex-grow">
-              <div className="text-primary ">Du lyssnar på </div>
-              <div className="text-lg font-bold">{streamSrcTitle}</div>
+              <div className="font-bold">Du lyssnar på </div>
+              <div className="text-2xl font-sans">{streamSrcTitle}</div>
             </div>
           ) : (
             <div>
               {isPlaying && (
-                <div className="bg-accent text-white font-bold inline py-1 px-2">
+                <div className="bg-accent text-white font-bold text-sm inline py-0 px-1">
                   Du lyssnar LIVE
                 </div>
               )}
-              <div className="text-lg font-bold">{streamSrcTitle}</div>
+              <div className="lg:text-lg text-sm hidden lg:block font-bold">{streamSrcTitle}</div>
             </div>
           )}
         </div>
@@ -118,7 +111,7 @@ export default function Player() {
                   ref={progressBar}
                   defaultValue="0"
                   type="range"
-                  className="player__seek w-full mx-2 appearance-none h-1 rounded cursor-pointer"
+                  className="player__seek w-full mx-2 appearance-none h-1 bg-mbrown cursor-pointer"
                   onChange={progressBarUpdate}
                 />
                 <span className="text-sm">{calcTime(duration)}</span>
@@ -128,7 +121,7 @@ export default function Player() {
         )}
         {streamSrc !== liveStream && (
           <button
-            className="player__live-button text-black btn px-4 py-1"
+            className="text-white btn px-4 py-1 bg-accent shadow-sm"
             onClick={playLive}
             style={{ display: { display } }}>
             Lyssna Live
@@ -138,7 +131,7 @@ export default function Player() {
 
       {/* Volume ========================== */}
 
-      <div className="player__vol-container h-full bg-primary box-content-box p-2 pr-4 text-black flex items-center border-l-[3px] border-black">
+      <div className="player__vol-container h-full lg:flex hidden bg-primary box-content-box p-2 pr-4 text-black items-center border-l-[3px] border-black">
         <button className="volume-btn w-6 text-left text-light text-lg bg-transparent cursor-pointer p-2 mr-2">
           <i className={volumeIcon}></i>
         </button>

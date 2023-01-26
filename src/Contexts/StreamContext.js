@@ -27,8 +27,10 @@ export function StreamProvider({ children }) {
   }, [streamSrc]);
 
   useEffect(() => {
-    audio.current.readyState !== 4 ? setIsLoading(true) : setIsLoading(false);
-  }, [streamSrc, audio.current.readyState]);
+    audio.current.addEventListener("loadstart", () => setIsLoading(true));
+    audio.current.addEventListener("canplay", () => setIsLoading(false));
+  }, [audio]);
+
 
   // PLAY RADIO ========================
   function playRadio() {

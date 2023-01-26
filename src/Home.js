@@ -88,21 +88,22 @@ export default function Home() {
   return (
     <div>
       {filterCurrentShow() && isCancelled && filterCurrentShow()[0] && (
-        <section className=" bg-red-300 border-b-2 border-black">
-          <div className="container py-2">
-            <p className="pb-0">
+        <section className=" bg-red-300 border-b-[3px] border-black">
+          <div className="container flex px-2 items-center py-2">
+            <i class="fa-sharp fa-solid fa-circle-exclamation mr-2"></i>
+            <p className="pb-0 font-bold">
               {filterCurrentShow()[0].fields.title} är inställd idag
             </p>
           </div>
         </section>
       )}
 
-      <section className="hero relative flex h-96 py-60 items-center justify-center overflow-hidden">
+      <section className="hero relative flex h-96 py-60 items-center justify-center overflow-hidden border-b-[3px] border-black">
         <img
           src="images/hero-bg.jpg"
-          className="hero-bg absolute inset-0 -z-20"
+          className="hero-bg absolute object-cover inset-0 -z-20"
         />
-        <div className="hero-overlay bg-[#790027] absolute inset-0 opacity-90 -z-10"></div>
+        <div className="hero-overlay bg-[#790027] absolute inset-0 opacity-95 -z-10"></div>
         <div className="container">
           <div className="hero__left flex flex-col justify-center text-white items-center">
             {isLoading && <div>Loading...</div>}
@@ -112,15 +113,19 @@ export default function Home() {
               filterCurrentShow().map((show) => {
                 return (
                   <div key={show.sys.id}>
-                    <p className="text-white font-bold">Just nu på Radio 88</p>
-                    <div className="flex space-x-6 mb-10">
+                    <div className="flex items-center space-x-6 mb-10">
                       {show.fields.image && (
-                        <div className="w-40">
+                        <div className="w-96 shadow-md">
                           <img src={show.fields.image.fields.file.url} />
                         </div>
                       )}
                       <div>
-                        <h1>{show.fields.title}</h1>
+                        <p className="text-white font-bold">
+                          Just nu på Radio 88
+                        </p>
+                        <h1 className="drop-shadow-[4px_4px_0px_#000000]">
+                          {show.fields.title}
+                        </h1>
                       </div>
                     </div>
                   </div>
@@ -146,37 +151,41 @@ export default function Home() {
         </div>
       </section>
 
-      {filterTodaysShows() && filterTodaysShows().length > 0 ? (
-        <section className="bg-black py-2">
-          <div className="container max-w-2xl">
-            <div className="hero__right bg-black text-white w-full flex justify-between">
-              <h2>Nästa program</h2>
-              <div className="flex gap-20">
-                {data &&
-                  filterTodaysShows().map((show) => (
-                    <div key={show.sys.id} className="flex mt-1">
-                      <Link to={`/program/${show.fields.slug}`}>
-                        <p className="font-bold text-primary">
-                          {show.fields.starts.substr(11)}
-                          <span className="text-white block text-3xl font-sans">
-                            {show.fields.title}
-                          </span>
-                        </p>
-                      </Link>
-                    </div>
-                  ))}
+      <section className="container grid md:grid-cols-[2fr_0.75fr] gap-6 py-14">
+        <div>
+          <img src="images/aladdin-banner.jpg" className="w-full mb-6" />
+          <FacebookPosts />
+        </div>
+        <div>
+          {filterTodaysShows() && filterTodaysShows().length > 0 ? (
+            <section className="bg-black py-4 px-8 sticky top-[131px]">
+              <div className="container">
+                <div className="hero__right bg-black text-white w-full pb-2">
+                  <h2>Dagens program</h2>
+                  <div>
+                    {data &&
+                      filterTodaysShows().map((show) => (
+                        <div key={show.sys.id} className="flex mt-4">
+                          <Link to={`/program/${show.fields.slug}`}>
+                            <div className="flex items-center gap-2 text-primary">
+                              <i className="fa-solid fa-clock text-sm"></i>
+                              <p className="font-bold text-primary text-lg">
+                              {show.fields.starts.substr(11)}
+                            </p>
+                            </div>
+                            <p className="text-white block text-3xl font-sans">
+                              {show.fields.title}
+                            </p>
+                          </Link>
+                        </div>
+                      ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      <section>
-        <div className="container">
-          <img src="images/aladdin-banner.jpg" className="m-auto w-3/4" />
+            </section>
+          ) : null}
         </div>
       </section>
-      <FacebookPosts />
     </div>
   );
 }

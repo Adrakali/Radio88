@@ -3,8 +3,8 @@ import React from "react";
 function FacebookCard({ from, message, image, link, created }) {
   return (
     <a href={link} target="_blank">
-      <article className="bg-white w-full mb-10">
-        <div className="grid grid-cols-fbcard gap-6">
+      <article className="bg-white w-full">
+        <div className="grid md:grid-cols-fbcard gap-6">
           <div>
             <img src={image} className="w-full" />
           </div>

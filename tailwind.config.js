@@ -10,7 +10,8 @@ module.exports = {
       body: ["Karla", "sans-serif"],
     },
     boxShadow: {
-      sm: "5px 5px 0px 0px #000000",
+      sm: "2px 2px 0px 0px #000000",
+      md: "5px 5px 0px 0px #000000",
     },
     extend: {
       colors: {
@@ -21,7 +22,8 @@ module.exports = {
         lbrown: "#fff8dc",
       },
       gridTemplateColumns: {
-        fbcard: "0.5fr 1fr",
+        header: "auto 1fr",
+        fbcard: "0.75fr 1fr",
       },
     },
   },

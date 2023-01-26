@@ -13,7 +13,7 @@ function FacebookPosts() {
   return (
     <section>
       <div className="container">
-        <div>
+        <div className="grid gap-8">
           {error && <p>{error}</p>}
           {isLoading && <p>Laddar</p>}
           {data &&

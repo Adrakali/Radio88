@@ -22,7 +22,7 @@ export default function ShowCard({
   return (
     <Link to={`/program/${slug}`}>
       <article
-        className="card relative shadow-sm bg-white border-black border-[3px]"
+        className="card relative h-full shadow-md bg-white border-black border-[3px]"
         key={id}>
         {img && (
           <img
@@ -41,7 +41,7 @@ export default function ShowCard({
           <p className="pb-8 text-lg truncate">{desc}</p>
           {streamUrl && (
             <button
-              className="btn text-base cursor-pointer px-4 py-2"
+              className="btn bg-primary shadow-sm text-base cursor-pointer px-4 py-2"
               onClick={handleButtonClick}>
               Lyssna på senaste avsnittet av {title}
             </button>

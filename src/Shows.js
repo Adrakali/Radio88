@@ -16,7 +16,7 @@ export default function Shows() {
         <h1>Program</h1>
       </div>
       <div className="container">
-        <div className="container grid grid-cols-1 lg:grid-cols-3 mt-10 gap-8">
+        <div className="container grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 mt-10 gap-8">
           {isLoading && (
             <h1 className="text-center col-span-3">Laddar sidan...</h1>
           )}
