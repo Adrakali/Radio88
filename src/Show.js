@@ -19,7 +19,7 @@ export default function Show() {
           }}>
           Tillbaka
         </p>
-        {loading && <div>Laddar sidan...</div>}
+        {loading && <div>Laddar...</div>}
         {error && <div>{error}</div>}
         {data &&
           data

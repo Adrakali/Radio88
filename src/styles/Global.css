@@ -49,7 +49,7 @@ h5 {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--light);
+  background-color: #fff2db;
   color: black;
   height: 100%;
   position: relative;
@@ -57,10 +57,7 @@ body {
 
 @layer components {
   .btn {
-    @apply cursor-pointer;
-    @apply border-black;
-    @apply border-[3px];
-    @apply font-bold;
+    @apply cursor-pointer border-black border-[3px] font-bold;
   }
 }
 

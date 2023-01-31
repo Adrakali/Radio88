@@ -70,17 +70,17 @@ export default function Player() {
   }
 
   return (
-    <div className="player border-black lg:border-r-[3px] lg:border-l-[3px] border-t-[3px] text-black h-full col-span-2 lg:col-span-1 flex items-center">
+    <div className="player xl:container text-white h-20 flex items-center">
       <button
         onClick={playRadio}
-        className="play-box-content-box py-2 px-4 bg-transparent h-full w-[6rem] text-4xl font-medium cursor-pointer border-r-[3px] border-black">
+        className="play-box-content-box bg-gray-900 hover:bg-primary-500 h-full w-[6rem] text-4xl font-medium cursor-pointer xl:border-x border-gray-900">
         {isPlaying ? (
           <i className="fa-solid fa-pause"></i>
         ) : (
-          <i className="fa-solid fa-play"></i>
+          <i className="fa-solid fa-play pl-1"></i>
         )}
       </button>
-      <div className="font-medium h-16 flex justify-between items-center px-4 py-2 flex-grow">
+      <div className="font-medium h-full flex justify-between items-center px-4 flex-grow">
         <div>
           {streamSrc !== liveStream ? (
             <div className="flex-grow">
@@ -94,7 +94,9 @@ export default function Player() {
                   Du lyssnar LIVE
                 </div>
               )}
-              <div className="lg:text-2xl text-sm hidden font-sans lg:block">{streamSrcTitle}</div>
+              <div className="lg:text-2xl text-sm hidden font-sans lg:block">
+                {streamSrcTitle}
+              </div>
             </div>
           )}
         </div>
@@ -131,8 +133,8 @@ export default function Player() {
 
       {/* Volume ========================== */}
 
-      <div className="player__vol-container h-full lg:flex hidden bg-primary box-content-box p-2 pr-4 text-black items-center border-l-[3px] border-black">
-        <button className="volume-btn w-6 text-left text-light text-lg bg-transparent cursor-pointer p-2 mr-2">
+      <div className="player__vol lg:flex hidden text-white items-center px-5 h-full border-x border-gray-800">
+        <button className="volume-btn text-left w-7 text-light text-lg bg-transparent cursor-pointer mr-2">
           <i className={volumeIcon}></i>
         </button>
         <input

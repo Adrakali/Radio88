@@ -19,7 +19,7 @@ function FacebookPosts() {
       <div className="container">
         <div className="grid gap-8">
           {error && <p>{error}</p>}
-          {isLoading && <p>Laddar</p>}
+          {isLoading && <p>Laddar...</p>}
           {data &&
             data
               .slice(0, visibleCards)

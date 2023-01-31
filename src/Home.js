@@ -71,8 +71,8 @@ export default function Home() {
           (!show.fields.week || show.fields.week[0] === currentWeek) &&
           !show.fields.cancelled &&
           show.fields.day === currentDay &&
-          show.fields.starts &&
-          show.fields.starts.substr(11) >= currentTime
+          show.fields.starts
+          // && show.fields.starts.substr(11) >= currentTime
         );
       })
       .sort((a, b) => {
@@ -106,7 +106,7 @@ export default function Home() {
         <div className="hero-overlay bg-[#790027] absolute inset-0 opacity-95 -z-10"></div>
         <div className="container">
           <div className="hero__left flex flex-col justify-center text-white items-center">
-            {isLoading && <div>Loading...</div>}
+            {isLoading && <div>Laddar...</div>}
             {error && <div>Error: {error.message}</div>}
             {isLive && !isCancelled ? (
               data &&
@@ -133,7 +133,7 @@ export default function Home() {
               })
             ) : (
               <div className="text-center text-white">
-                <h1 className="text-7xl mb-16 w-[27ch] drop-shadow-[4px_4px_0px_#000000]">
+                <h1 className="text-7xl w-[27ch] drop-shadow-[4px_4px_0px_#000000]">
                   Vi spelar musiken som du glömt att du kommer ihåg
                 </h1>
               </div>
@@ -142,7 +142,7 @@ export default function Home() {
               <div>
                 <button
                   onClick={playRadio}
-                  className="px-16 py-4 bg-primary border-black border-4 uppercase font-extrabold text-black drop-shadow-[4px_4px_0px_#000000]">
+                  className="px-16 py-4 mt-16 bg-primary border-black border-4 uppercase font-extrabold text-black drop-shadow-[4px_4px_0px_#000000]">
                   <i className="fa-solid fa-play mr-4"></i>Lyssna nu
                 </button>
               </div>
@@ -151,16 +151,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container grid md:grid-cols-[2fr_0.75fr] gap-6 py-14">
+      <section className="mx-auto max-w-screen-lg grid md:grid-cols-[1fr_0.5fr] gap-6 py-14">
         <div>
           <img src="images/aladdin-banner.jpg" className="w-full mb-6" />
           <FacebookPosts />
         </div>
         <div>
           {filterTodaysShows() && filterTodaysShows().length > 0 ? (
-            <section className="bg-black py-4 px-8 sticky top-[131px]">
+            <section className="bg-black p-8 sticky top-[184px]">
               <div className="container">
-                <div className="hero__right text-white w-full pb-2">
+                <div className="text-white w-full">
                   <h2>Dagens program</h2>
                   <div>
                     {data &&

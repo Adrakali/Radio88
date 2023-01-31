@@ -3,17 +3,17 @@ import React from "react";
 function FacebookCard({ from, message, image, link, created }) {
   return (
     <a href={link} target="_blank">
-      <article className="bg-white w-full">
-        <div className="grid md:grid-cols-fbcard gap-6">
+      <article className="bg-white border border-gray-200 w-full">
+        <div>
+          <div className={image ? "p-4" : "pt-4 px-4"}>
+            <h2>{from}</h2>
+            <p>{created}</p>
+        </div>
           <div>
             <img src={image} className="w-full" />
           </div>
-          <div>
-            <h2>{from}</h2>
-            <p>{created}</p>
-            <p>{message}</p>
+            {message && <p className="p-4">{message}</p>}
           </div>
-        </div>
       </article>
     </a>
   );

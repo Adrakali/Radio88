@@ -15,15 +15,19 @@ module.exports = {
     },
     extend: {
       colors: {
+        primary: {
+          DEFAULT: "#fbb131",
+          300: "#FFFBF5",
+          500: "#E5A12D",
+        },
         dbrown: "#3d2414",
         mbrown: "#603d27",
-        primary: "#fbb131",
         accent: "#790027",
         lbrown: "#fff8dc",
       },
       gridTemplateColumns: {
         header: "auto 1fr",
-        fbcard: "0.75fr 1fr",
+        // fbcard: "0.75fr 1fr",
       },
     },
   },
