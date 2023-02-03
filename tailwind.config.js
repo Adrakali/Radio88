@@ -11,7 +11,7 @@ module.exports = {
     },
     boxShadow: {
       sm: "2px 2px 0px 0px #000000",
-      md: "5px 5px 0px 0px #000000",
+      md: "-16px 16px 0px 0px #000000",
     },
     extend: {
       colors: {

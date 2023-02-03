@@ -12,14 +12,12 @@ export default function Shows() {
 
   return (
     <section>
-      <div className="page-header container">
-        <h1>Program</h1>
+      <div className="bg-accent py-10 text-primary">
+        <h1 className="max-w-[1380px] mx-auto text-6xl">Program</h1>
       </div>
-      <div className="container">
-        <div className="container grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 mt-10 gap-8">
-          {isLoading && (
-            <h1 className="text-center col-span-3">Laddar...</h1>
-          )}
+      <div className="max-w-[1380px] mx-auto">
+        <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {isLoading && <h1 className="col-span-3 text-center">Laddar...</h1>}
           {error && <div>{error}</div>}
           {data &&
             data.map((show) => (

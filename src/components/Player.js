@@ -70,31 +70,35 @@ export default function Player() {
   }
 
   return (
-    <div className="player xl:container text-white h-20 flex items-center">
+    <div className="player mx-auto flex h-16 max-w-[1380px] items-center text-white lg:h-20">
       <button
         onClick={playRadio}
-        className="play-box-content-box bg-gray-900 hover:bg-primary-500 h-full w-[6rem] text-4xl font-medium cursor-pointer xl:border-x border-gray-900">
+        className="play-box-content-box h-full w-16 cursor-pointer bg-[#1a1a1a] text-4xl font-medium hover:bg-primary hover:text-accent lg:w-[6rem]">
         {isPlaying ? (
           <i className="fa-solid fa-pause"></i>
         ) : (
           <i className="fa-solid fa-play pl-1"></i>
         )}
       </button>
-      <div className="font-medium h-full flex justify-between items-center px-4 flex-grow">
+      <div className="flex-grow items-center justify-between px-4 font-medium sm:flex sm:px-6">
         <div>
           {streamSrc !== liveStream ? (
-            <div className="flex-grow">
-              <div className="font-bold">Du lyssnar på </div>
-              <div className="text-2xl font-sans">{streamSrcTitle}</div>
+            <div className="flex flex-grow sm:flex-col">
+              <div className="mr-1 text-base font-bold sm:mr-0 sm:text-primary md:block md:text-base">
+                Du lyssnar på{" "}
+              </div>
+              <div className="text-base font-bold sm:font-sans sm:text-2xl sm:font-normal">
+                {streamSrcTitle}
+              </div>
             </div>
           ) : (
             <div>
               {isPlaying && (
-                <div className="bg-accent text-white font-bold text-sm inline py-0 px-1">
+                <div className="inline bg-accent py-0 px-1 text-xs font-bold text-white sm:text-sm">
                   Du lyssnar LIVE
                 </div>
               )}
-              <div className="lg:text-2xl text-sm hidden font-sans lg:block">
+              <div className="font-sans text-sm sm:text-2xl lg:block">
                 {streamSrcTitle}
               </div>
             </div>
@@ -103,17 +107,17 @@ export default function Player() {
 
         {/* Progress Bar ========================== */}
         {streamSrc !== liveStream && (
-          <div className="player__seek mx-8 flex items-center justify-center w-3/5">
+          <div className="player__seek flex flex-grow items-center justify-center sm:mx-8 sm:w-3/5">
             {isLoading ? (
               <div className="text-left">Laddar...</div>
             ) : (
-              <div className="w-full flex items-center">
+              <div className="flex w-full items-center">
                 <span className="text-sm">{calcTime(currentTime)}</span>
                 <input
                   ref={progressBar}
                   defaultValue="0"
                   type="range"
-                  className="player__seek w-full mx-2 appearance-none h-1 bg-mbrown cursor-pointer"
+                  className="player__seek mx-2 h-1 w-full cursor-pointer appearance-none bg-[#3f3f3f]"
                   onChange={progressBarUpdate}
                 />
                 <span className="text-sm">{calcTime(duration)}</span>
@@ -123,7 +127,7 @@ export default function Player() {
         )}
         {streamSrc !== liveStream && (
           <button
-            className="text-white btn px-4 py-1 bg-accent shadow-sm"
+            className="btn md:text-md absolute top-4 right-14 bg-accent px-4 py-1 text-sm text-white sm:right-16 md:right-[5rem] lg:static"
             onClick={playLive}
             style={{ display: { display } }}>
             Lyssna Live
@@ -133,12 +137,12 @@ export default function Player() {
 
       {/* Volume ========================== */}
 
-      <div className="player__vol lg:flex hidden text-white items-center px-5 h-full border-x border-gray-800">
-        <button className="volume-btn text-left w-7 text-light text-lg bg-transparent cursor-pointer mr-2">
+      <div className="player__vol hidden h-full items-center border-x border-[#3f3f3f] px-5 text-white lg:flex">
+        <button className="volume-btn text-light mr-2 w-7 cursor-pointer bg-transparent text-left text-lg">
           <i className={volumeIcon}></i>
         </button>
         <input
-          className="appearance-none h-1 bg-mbrown cursor-pointer"
+          className="h-1 cursor-pointer appearance-none bg-[#3f3f3f]"
           type="range"
           onChange={changeVolume}
         />

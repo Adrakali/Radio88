@@ -29,18 +29,16 @@ function ScheduleListItem({ weekday }) {
         listItems.map((show) => (
           <div key={show.sys.id}>
             <Link to={`/program/${show.fields.slug}`}>
-              <div
-                key={show.sys.id}
-                className="mb-2 px-4 py-1 flex flex-row">
-                <div>
-                  <h3 className="mb-0">{show.fields.title}</h3>
+              <div key={show.sys.id} className="mb-2 py-1">
+                <div className="flex justify-between border-b border-black pb-4">
+                  <h3 className="mb-0 font-body text-2xl">
+                    {show.fields.title}
+                  </h3>
                   <div>
-                    <p>
-                      {show.fields.starts.substr(11)} -{" "}
-                      {show.fields.ends.substr(11)}
+                    <p className="font-body text-2xl">
+                      {`${show.fields.starts.substr(11)} -
+                      ${show.fields.ends.substr(11)}`}
                     </p>
-                  </div>
-                  <div>
                     {show.fields.week && show.fields.week[0] === "Even" && (
                       <p>Jämna veckor</p>
                     )}

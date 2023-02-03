@@ -34,66 +34,66 @@ export default function Nav() {
   }, []);
 
   return (
-    <header className="bg-black sticky top-0 right-0 left-0 z-50">
-      <Player />
-      <div className="border z-10 bg-primary border-primary-500">
-        <div className="xl:container flex justify-between">
-          <Link to="/" className="w-40">
+    <header className="sticky top-0 right-0 left-0 z-50 bg-black">
+      <div className="z-10 flex h-16 items-center bg-primary p-2 lg:h-20">
+        <div className="mx-auto flex w-full max-w-[1380px] items-center justify-between">
+          <Link to="/" className="w-20 lg:w-32">
             <img
               src="/images/radio88-hemsida.png"
               id="nav__logo"
               alt="logo"
-              className="max-h-24 p-2 h-full"
+              className="w-full pl-2"
             />
           </Link>
           <nav
             onClick={toggleMenu}
-            className="nav cursor-pointer flex items-center justify-end">
-            <li className="fa-solid fa-bars px-10 text-2xl xl:hidden pointer-events-none"></li>
+            className="nav flex cursor-pointer items-center justify-end">
+            <li className="fa-solid fa-bars pointer-events-none px-2 text-2xl sm:px-4 md:px-6 lg:px-10 xl:hidden"></li>
             <ul
               className={`${isOpen ? "flex-col" : "hidden"}
-               bg-primary font-sans w-full text-2xl xl:h-full top-full xl:relative
-              xl:top-0 left-0 absolute xl:flex xl:gap-6
-              justify-end items-center`}>
+               absolute top-full left-0 w-full items-center justify-end bg-primary
+              font-sans text-2xl xl:relative xl:top-0 xl:flex
+              xl:h-full xl:gap-2`}>
               <Link
                 to="/"
-                className="xl:w-auto w-full cursor-pointer h-full xl:px-4 p-4 flex items-center hover:text-primary hover:bg-accent">
-                <li className="h-full flex items-center">Hem</li>
+                className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
+                <li className="flex h-full items-center">Hem</li>
               </Link>
               <Link
                 to="/tabla"
-                className="xl:w-auto w-full cursor-pointer h-full xl:px-4 p-4 flex items-center hover:text-primary hover:bg-accent">
-                <li className="h-full flex items-center">Tablå</li>
+                className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
+                <li className="flex h-full items-center">Tablå</li>
               </Link>
               <Link
                 to="/program"
-                className="xl:w-auto w-full cursor-pointer h-full xl:px-4 p-4 flex items-center hover:text-primary hover:bg-accent">
-                <li className="h-full flex items-center">Program</li>
+                className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
+                <li className="flex h-full items-center">Program</li>
               </Link>
               <Link
                 to="/om"
-                className="xl:w-auto w-full cursor-pointer h-full xl:px-4 p-4 flex items-center hover:text-primary hover:bg-accent">
-                <li className="hover:text-primary hover:bg-accent">Om oss</li>
+                className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
+                <li className="hover:bg-accent hover:text-primary">Om oss</li>
               </Link>
               <Link
                 to="/kontakt"
-                className="xl:w-auto w-full cursor-pointer h-full xl:px-4 p-4 flex items-center hover:text-primary hover:bg-accent">
-                <li className="h-full flex items-center">Kontakt</li>
+                className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
+                <li className="flex h-full items-center">Kontakt</li>
               </Link>
               <Link
                 to="/annonsera"
-                className="xl:w-auto w-full cursor-pointer h-full xl:px-4 p-4 flex items-center hover:text-primary hover:bg-accent">
-                <li className="h-full flex items-center">Annonsera</li>
+                className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
+                <li className="flex h-full items-center">Annonsera</li>
               </Link>
               <Link
                 to="/support"
-                className="xl:w-auto w-full cursor-pointer h-full xl:px-4 p-4 flex items-center hover:text-primary hover:bg-accent">
-                <li className="h-full flex items-center">Supporterklubben</li>
+                className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
+                <li className="flex h-full items-center">Supporterklubben</li>
               </Link>
             </ul>
           </nav>
         </div>
       </div>
+      <Player />
     </header>
   );
 }

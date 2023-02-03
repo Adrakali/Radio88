@@ -22,26 +22,26 @@ export default function ShowCard({
   return (
     <Link to={`/program/${slug}`}>
       <article
-        className="card relative h-full shadow-md bg-white border-black border-[3px]"
+        className="card relative h-full border border-gray-200 bg-white"
         key={id}>
         {img && (
           <img
             src={img}
             alt={title}
-            className="card__img w-full object-cover h-[20rem]"
+            className="card__img h-[20rem] w-full object-cover"
           />
         )}
         <div className="p-6">
           <h2 className="text-3xl">{title}</h2>
           <div className="flex">
-            <p className="text-base mb-4 font-bold text-gray-600">
+            <p className="mb-4 text-base font-bold text-gray-600">
               {`${day}ar ${starts}`}
             </p>
           </div>
-          <p className="pb-8 text-lg truncate">{desc}</p>
+          <p className="truncate pb-8 text-lg">{desc}</p>
           {streamUrl && (
             <button
-              className="btn bg-primary shadow-sm text-base cursor-pointer px-4 py-2"
+              className="btn cursor-pointer bg-primary px-4 py-2 text-base shadow-sm"
               onClick={handleButtonClick}>
               Lyssna på senaste avsnittet av {title}
             </button>
