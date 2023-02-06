@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import useContentful from "./Hooks/useContentful";
-import { StreamContext } from "./Contexts/StreamContext";
+import useContentful from "../Hooks/useContentful";
+import { StreamContext } from "../Contexts/StreamContext";
 
 export default function Show() {
   const { id } = useParams();

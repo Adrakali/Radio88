@@ -2,11 +2,11 @@ import "./Styles/Global.css";
 import React from "react";
 import Nav from "./Components/Nav";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Home";
-import Contact from "./Contact";
-import Shows from "./Shows";
-import Show from "./Show";
-import Schedule from "./Schedule";
+import Home from "./Pages/Home";
+import Contact from "./Pages/Contact";
+import Shows from "./Pages/Shows";
+import Show from "./Pages/Show";
+import Schedule from "./Pages/Schedule";
 import { StreamProvider } from "./Contexts/StreamContext";
 import { TimeProvider } from "./Contexts/TimeContext";
 
