@@ -38,12 +38,15 @@ export default function ShowCard({
               {`${day}ar ${starts}`}
             </p>
           </div>
-          <p className="truncate pb-8 text-lg">{desc}</p>
+          <p className="prose truncate pb-8 text-lg">
+            {desc}
+          </p>
           {streamUrl && (
             <button
-              className="btn cursor-pointer bg-primary px-4 py-2 text-base shadow-sm"
+              className="btn mt-auto flex items-center gap-4 rounded-full bg-primary py-2 px-6 hover:bg-accent hover:text-white"
               onClick={handleButtonClick}>
-              Lyssna på senaste avsnittet av {title}
+              <i className="fa-solid fa-play"></i>
+              Lyssna på {title}
             </button>
           )}
         </div>

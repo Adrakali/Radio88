@@ -4,7 +4,7 @@ export default function useFacebook() {
   const { REACT_APP_FACEBOOK_TOKEN } = process.env;
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error] = useState(null);
 
   useEffect(() => {
     fetch(
@@ -18,9 +18,7 @@ export default function useFacebook() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [REACT_APP_FACEBOOK_TOKEN]);
 
   return { data, isLoading, error };
 }
-
-// radio88 facebook page id: 100064241733780, (radio88.se)

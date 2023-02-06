@@ -52,7 +52,13 @@ export default function Player() {
           (audio.current.currentTime / audio.current.duration) * 100
         ));
     });
-  }, [audio?.current?.loadedmetadata, audio?.current?.readyState]);
+  }, [
+    audio?.current?.loadedmetadata,
+    audio?.current?.readyState,
+    audio,
+    liveStream,
+    streamSrc,
+  ]);
 
   function progressBarUpdate() {
     audio.current.currentTime =

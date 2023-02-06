@@ -26,7 +26,7 @@ export default function useContentful() {
       }
     };
     getAllEntries();
-  }, []);
+  }, [client]);
 
   return { data, isLoading, error };
 }

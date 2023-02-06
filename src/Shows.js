@@ -27,7 +27,7 @@ export default function Shows() {
                 slug={show.fields.slug}
                 title={show.fields.title}
                 day={show.fields.day}
-                starts={show.fields.starts.substr(11)}
+                starts={show.fields.startTime}
                 desc={show.fields.description}
                 img={show.fields.image && show.fields.image.fields.file.url}
                 streamUrl={show.fields.streamurl}

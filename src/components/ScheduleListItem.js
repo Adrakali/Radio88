@@ -13,7 +13,7 @@ function ScheduleListItem({ weekday }) {
         return show.fields.day.toLowerCase() === weekday.toLowerCase();
       })
       .sort((a, b) => {
-        return a.fields.starts.substr(11) < b.fields.starts.substr(11) ? -1 : 1;
+        return a.fields.startTime < b.fields.startTime ? -1 : 1;
       });
     return filteredItem;
   }
@@ -36,8 +36,8 @@ function ScheduleListItem({ weekday }) {
                   </h3>
                   <div>
                     <p className="font-body text-2xl">
-                      {`${show.fields.starts.substr(11)} -
-                      ${show.fields.ends.substr(11)}`}
+                      {`${show.fields.startTime} -
+                      ${show.fields.endTime}`}
                     </p>
                     {show.fields.week && show.fields.week[0] === "Even" && (
                       <p>Jämna veckor</p>
