@@ -9,6 +9,9 @@ import Show from "./Pages/Show";
 import Schedule from "./Pages/Schedule";
 import { StreamProvider } from "./Contexts/StreamContext";
 import { TimeProvider } from "./Contexts/TimeContext";
+import About from "./Pages/About";
+import Ads from "./Pages/Ads";
+import Support from "./Pages/Support";
 
 function App() {
   return (
@@ -22,6 +25,9 @@ function App() {
               <Route path="program" element={<Shows />} />
               <Route path="kontakt" element={<Contact />} />
               <Route path="tabla" element={<Schedule />} />
+              <Route path="om" element={<About />} />
+              <Route path="annonsera" element={<Ads />} />
+              <Route path="supporterklubben" element={<Support />} />
               <Route path="/program/:id" element={<Show />} />
             </Routes>
           </main>

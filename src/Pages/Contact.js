@@ -1,12 +1,10 @@
 import React from "react";
+import PageHeader from "../Components/PageHeader";
 
 export default function Contact() {
   return (
     <section>
-      <div className="page-header container">
-        <h1>Kontakt</h1>
-      </div>
-      <div className="container"></div>
+      <PageHeader title={"Kontak"} />
     </section>
   );
 }

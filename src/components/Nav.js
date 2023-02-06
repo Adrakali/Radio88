@@ -85,7 +85,7 @@ export default function Nav() {
                 <li className="flex h-full items-center">Annonsera</li>
               </Link>
               <Link
-                to="/support"
+                to="/supporterklubben"
                 className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
                 <li className="flex h-full items-center">Supporterklubben</li>
               </Link>
