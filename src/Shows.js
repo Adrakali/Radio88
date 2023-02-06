@@ -1,6 +1,6 @@
 import React from "react";
 import useContentful from "./Hooks/useContentful";
-import ShowCard from "./components/ShowCard";
+import ShowCard from "./Components/ShowCard";
 
 export default function Shows() {
   const { data, isLoading, error } = useContentful();

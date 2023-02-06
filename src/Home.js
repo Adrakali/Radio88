@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useCallback } from "react";
 import { TimeContext } from "./Contexts/TimeContext";
 import { StreamContext } from "./Contexts/StreamContext";
 import useContentful from "./Hooks/useContentful";
-import FacebookPosts from "./components/FacebookPosts";
-import CancelBanner from "./components/CancelBanner";
-import Hero from "./components/Hero";
-import TodaysShows from "./components/TodayShows";
+import FacebookPosts from "./Components/FacebookPosts";
+import CancelBanner from "./Components/CancelBanner";
+import Hero from "./Components/Hero";
+import TodaysShows from "./Components/TodayShows";
 
 export default function Home() {
   const { data, isLoading, error } = useContentful();

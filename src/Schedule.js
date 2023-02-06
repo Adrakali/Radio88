@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import ScheduleListItem from "./components/ScheduleListItem";
+import ScheduleListItem from "./Components/ScheduleListItem";
 import { TimeContext } from "./Contexts/TimeContext";
 
 function Schedule() {
