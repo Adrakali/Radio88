@@ -12,7 +12,6 @@ function Hero({
 }) {
   return (
     <div>
-      {" "}
       <section className="hero relative flex items-center justify-center overflow-hidden py-10 md:py-20 lg:py-20">
         <img
           alt="hero background"
@@ -62,7 +61,7 @@ function Hero({
               })
             ) : (
               <div className="text-center text-primary">
-                <h1 className="max-w-[27ch] text-2xl drop-shadow-[4px_4px_0px_#000000] sm:text-4xl md:text-5xl lg:text-7xl">
+                <h1 className="max-w-[27ch] my-0">
                   Vi spelar musiken som du glömt att du kommer ihåg
                 </h1>
                 {!isPlaying && (
