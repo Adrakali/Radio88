@@ -1,10 +1,19 @@
-import React from 'react'
+import React from "react";
 
-function Hero({isLoading, error, isLive, isCancelled, data, filterCurrentShow, isPlaying, playRadio}) {
+function Hero({
+  isLoading,
+  error,
+  isLive,
+  isCancelled,
+  data,
+  filterCurrentShow,
+  isPlaying,
+  playRadio,
+}) {
   return (
     <div>
       {" "}
-      <section className="hero relative flex items-center justify-center overflow-hidden py-16">
+      <section className="hero relative flex items-center justify-center overflow-hidden py-10 md:py-20 lg:py-20">
         <img
           alt="hero background"
           src="images/mick-haupt-FGrGhzaSl0s-unsplash.jpg"
@@ -22,8 +31,9 @@ function Hero({isLoading, error, isLive, isCancelled, data, filterCurrentShow, i
                   <div key={show.sys.id}>
                     <div className="flex items-center gap-8 text-center">
                       {show.fields.image && (
-                        <div className="w-[450px] shadow-md">
+                        <div className="h-[450px] w-[450px]">
                           <img
+                          className="h-full w-full object-cover"
                             src={show.fields.image.fields.file.url}
                             alt={show.fields.title}
                           />
@@ -40,7 +50,7 @@ function Hero({isLoading, error, isLive, isCancelled, data, filterCurrentShow, i
                           <div>
                             <button
                               onClick={playRadio}
-                              className="rounded-full bg-primary px-16 py-4 font-extrabold uppercase text-black md:mt-4 lg:mt-8 ">
+                              className="rounded-full bg-primary px-16 py-4 font-body font-extrabold uppercase text-black md:mt-4 lg:mt-8 ">
                               <i className="fa-solid fa-play mr-4"></i>Lyssna nu
                             </button>
                           </div>
@@ -59,7 +69,7 @@ function Hero({isLoading, error, isLive, isCancelled, data, filterCurrentShow, i
                   <div>
                     <button
                       onClick={playRadio}
-                      className="mt-8 rounded-full bg-primary px-16 py-4 font-extrabold uppercase text-black md:mt-12 lg:mt-16 ">
+                      className="mt-8 rounded-full bg-primary font-body px-16 py-4 font-extrabold uppercase text-black md:mt-12 lg:mt-16 ">
                       <i className="fa-solid fa-play mr-4"></i>Lyssna nu
                     </button>
                   </div>
@@ -73,4 +83,4 @@ function Hero({isLoading, error, isLive, isCancelled, data, filterCurrentShow, i
   );
 }
 
-export default Hero
+export default Hero;

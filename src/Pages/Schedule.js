@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import ScheduleListItem from "../Components/ScheduleListItem";
 import { TimeContext } from "../Contexts/TimeContext";
+import PageHeader from "../Components/PageHeader";
 
 function Schedule() {
   const { currentWeek } = useContext(TimeContext);
@@ -16,28 +17,26 @@ function Schedule() {
   ];
 
   return (
-    <section>
-      <div className="mb-8 bg-accent py-10 text-primary">
-        <div className="max-w-4xl mx-auto flex items-center justify-between">
-          <h1 className="text-6xl">Tablå</h1>
-          <p>Denna vecka är {currentWeek === "Odd" ? "udda" : "jämn"}</p>
+    <div>
+      <PageHeader width={"960px"} title={"Tablå"} info={`Denna vecka är ${currentWeek === "Odd" ? "udda" : "jämn"}`}/>
+
+      <section>
+        <div className="container max-w-4xl">
+          <div className="flex-grow">
+            {weekdays.map((weekday) => {
+              return (
+                <div key={weekday} className="mb-12">
+                  <h2 className="mb-8 bg-primary px-4 py-2 text-3xl text-black">
+                    {weekday}
+                  </h2>
+                  <ScheduleListItem weekday={weekday} />
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
-      <div className="container max-w-4xl">
-        <div className="flex-grow">
-          {weekdays.map((weekday) => {
-            return (
-              <div key={weekday} className="mb-12">
-                <h2 className="mb-8 bg-primary px-4 py-2 text-3xl text-black">
-                  {weekday}
-                </h2>
-                <ScheduleListItem weekday={weekday} />
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
 

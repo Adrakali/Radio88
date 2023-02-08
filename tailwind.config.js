@@ -14,6 +14,14 @@ module.exports = {
       md: "-16px 16px 0px 0px #000000",
     },
     extend: {
+      fontSize: {
+        h1: "var(--step-5)",
+        h2: "var(--step-4)",
+        h3: "var(--step-3)",
+        h4: "var(--step-2)",
+        h5: "var(--step-1)",
+        p: "var(--step-0)",
+      },
       colors: {
         primary: {
           DEFAULT: "#fbb131",
@@ -24,10 +32,6 @@ module.exports = {
         mbrown: "#603d27",
         accent: "#790027",
         lbrown: "#fff8dc",
-      },
-      gridTemplateColumns: {
-        header: "auto 1fr",
-        // fbcard: "0.75fr 1fr",
       },
     },
   },

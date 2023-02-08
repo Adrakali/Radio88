@@ -13,16 +13,21 @@ function TodayShows({ filterTodaysShows, data }) {
               <div>
                 {data &&
                   filterTodaysShows().map((show) => (
-                    <div key={show.sys.id} className="mt-4 flex">
-                      <Link to={`/program/${show.fields.slug}`}>
-                        <div className="flex items-center gap-2 text-black">
+                    <div
+                      key={show.sys.id}
+                      className="transition-color group flex cursor-pointer border-b border-accent pt-4 pb-4 duration-150 ease-out hover:bg-accent hover:p-4">
+                      <Link
+                        to={`/program/${show.fields.slug}`}
+                        className="w-full">
+                        <div className="transition-color flex items-center gap-2  text-black duration-150 ease-out group-hover:text-primary">
                           <i className="fa-solid fa-clock text-sm"></i>
-                          <p className="text-lg font-bold text-black">
+                          <p className="transition-color text-lg font-bold  text-black duration-150 ease-out group-hover:text-primary">
                             {show.fields.startTime}
                           </p>
                         </div>
-                        <p className="block font-body text-2xl font-bold text-black">
-                          {show.fields.title}
+                        <p className="transition-color flex items-center justify-between font-body text-2xl font-bold tracking-tight text-black duration-150 ease-out group-hover:text-primary">
+                          {show.fields.title}{" "}
+                          <i className="fa-sharp fa-solid fa-arrow-right text-[16px] transition-all duration-150 ease-out group-hover:text-[20px]"></i>
                         </p>
                       </Link>
                     </div>

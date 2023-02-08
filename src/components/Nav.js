@@ -56,7 +56,7 @@ export default function Nav() {
               xl:h-full xl:gap-2`}>
               <Link
                 to="/"
-                className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
+                className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 ease-out hover:bg-accent hover:text-primary hover:transition-colors xl:w-auto xl:border-none xl:px-4">
                 <li className="flex h-full items-center">Hem</li>
               </Link>
               <Link

@@ -1,6 +1,7 @@
 import React from "react";
 import useContentful from "../Hooks/useContentful";
 import ShowCard from "../Components/ShowCard";
+import PageHeader from "../Components/PageHeader";
 
 export default function Shows() {
   const { data, isLoading, error } = useContentful();
@@ -12,10 +13,8 @@ export default function Shows() {
 
   return (
     <section>
-      <div className="bg-accent py-10 text-primary">
-        <h1 className="max-w-[1380px] mx-auto text-6xl">Program</h1>
-      </div>
-      <div className="max-w-[1380px] mx-auto">
+      <PageHeader width={"1380px"} title={"Program"} />
+      <div className="mx-auto max-w-[1380px] px-4">
         <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {isLoading && <h1 className="col-span-3 text-center">Laddar...</h1>}
           {error && <div>{error}</div>}

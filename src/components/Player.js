@@ -90,7 +90,7 @@ export default function Player() {
         <div>
           {streamSrc !== liveStream ? (
             <div className="flex flex-grow sm:flex-col">
-              <div className="mr-1 text-base font-bold sm:mr-0 sm:text-primary md:block md:text-base">
+              <div className="mr-1 font-body text-base font-bold uppercase tracking-tight sm:mr-0 sm:text-primary md:block md:text-base">
                 Du lyssnar på{" "}
               </div>
               <div className="text-base font-bold sm:font-sans sm:text-2xl sm:font-normal">
@@ -100,11 +100,11 @@ export default function Player() {
           ) : (
             <div>
               {isPlaying && (
-                <div className="inline bg-accent py-0 px-1 text-xs font-bold text-white sm:text-sm">
+                <div className="inline bg-accent py-0 px-1 font-body text-xs font-bold uppercase text-white sm:text-sm">
                   Du lyssnar LIVE
                 </div>
               )}
-              <div className="font-sans text-sm sm:text-2xl lg:block">
+              <div className="font-sans text-sm sm:text-p lg:block">
                 {streamSrcTitle}
               </div>
             </div>
