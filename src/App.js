@@ -1,4 +1,4 @@
-import "./Styles/Global.css";
+import "./styles/Global.css";
 import React from "react";
 import Nav from "./Components/Nav";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
