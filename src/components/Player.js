@@ -79,7 +79,7 @@ export default function Player() {
     <div className="player mx-auto flex h-16 max-w-[1380px] items-center text-white lg:h-20">
       <button
         onClick={playRadio}
-        className="play-box-content-box h-full w-16 cursor-pointer bg-[#1a1a1a] text-4xl font-medium hover:bg-primary hover:text-accent lg:w-[6rem]">
+        className="play-box-content-box h-full flex items-center justify-center w-16 cursor-pointer bg-[#1a1a1a] text-4xl font-medium hover:bg-primary hover:text-accent lg:w-[6rem]">
         {isPlaying ? (
           <i className="fa-solid fa-pause"></i>
         ) : (
@@ -91,7 +91,7 @@ export default function Player() {
           {streamSrc !== liveStream ? (
             <div className="flex flex-grow sm:flex-col">
               <div className="mr-1 font-body text-base font-bold uppercase tracking-tight sm:mr-0 sm:text-primary md:block md:text-base">
-                Du lyssnar på{" "}
+                Du lyssnar på
               </div>
               <div className="text-base font-bold sm:font-sans sm:text-2xl sm:font-normal">
                 {streamSrcTitle}
@@ -133,7 +133,7 @@ export default function Player() {
         )}
         {streamSrc !== liveStream && (
           <button
-            className="btn md:text-md absolute top-4 right-14 bg-accent px-4 py-1 text-sm text-white sm:right-16 md:right-[5rem] lg:static"
+            className="btn md:text-md bg-primary px-4 hidden lg:block py-2 text-pxs text-black sm:right-16 md:right-[5rem] lg:static"
             onClick={playLive}
             style={{ display: { display } }}>
             Lyssna Live

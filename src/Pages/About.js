@@ -6,7 +6,7 @@ function About() {
     <main>
       <PageHeader title={"Om oss"} width={"960px"} />
       <section className="section px-4">
-        <div className="container max-w-[960px]">
+        <div className="mx-auto max-w-[960px]">
           <p className="mb-8 font-bold">
             När började människan skapa och lyssna på musik? När blev musiken
             ett njutningsmedel, för kontemplation, för dans, verklighetsflykt,
@@ -41,12 +41,12 @@ function About() {
             obemannat, ja då rullade musiken på – dygnet runt! Musikälskarna
             applåderade.
           </p>
-          <article className="mb-8 flex bg-primary">
+          <article className="mb-8 flex items-center bg-primary">
             <div className="p-8">
-              <h2 className="mt-16 mb-8 leading-tight text-accent">
+              <h2 className="mb-8 leading-tight text-accent">
                 Några av programledarna från Radio FM tiden
               </h2>
-              <p className="mb-8">
+              <p>
                 Från vänster; Johnny, Philip, Dick och Torsten. Johnny och
                 Torsten är fortfarande radioaktiva hos oss på Radio 88.
               </p>
@@ -75,12 +75,12 @@ function About() {
             många år. Ända till sin bortgång 2011 var Ulf djupt engagerad i
             teknik och programutbud.
           </p>
-          <article className="flex bg-primary">
+          <article className="flex items-center bg-primary">
             <div>
               <img src="/images/image (1).webp" alt="Programledare från 2012" />
             </div>
             <div className="p-8">
-              <h2 className="mt-16 mb-8 leading-tight text-accent">
+              <h2 className="mb-8 leading-tight text-accent">
                 Så här kan det också se ut när man sänder radio live
               </h2>
               <p className="mb-8">

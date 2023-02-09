@@ -11,7 +11,7 @@ export default function Show() {
 
   return (
     <>
-      <div className="mb-16 bg-accent">
+      <div className="bg-accent">
         {loading && <div>Laddar...</div>}
         {error && <div>{error}</div>}
         {data &&
@@ -20,23 +20,23 @@ export default function Show() {
             .map((filteredShow) => {
               return (
                 <div
-                  className="container flex max-w-[1380px] items-end justify-between px-4 py-6 text-white lg:py-8"
+                  className="flex flex-col sm:flex-row max-w-[1380px] mx-auto sm:items-end items-start justify-between px-4 py-6 text-primary lg:py-8"
                   key={filteredShow.fields.title}>
                   <div>
-                    <h1 className="mb-0 text-2xl leading-none sm:text-4xl lg:text-6xl">
+                    <h1 className="mb-0 leading-none lg:text-h1">
                       {filteredShow.fields.title}
                     </h1>
-                    <p className="text-base font-bold lg:text-xl">
+                    <p className="font-bold lg:text-p">
                       {`${filteredShow.fields.day}
                       ${filteredShow.fields.startTime} - ${filteredShow.fields.endTime}`}
                     </p>
                   </div>
                   {filteredShow.fields.host && (
-                    <div className="text-right">
-                      <p className="text-sm font-bold text-primary lg:text-xl">
+                    <div className="sm:text-right text-left">
+                      <p className="font-bold text-white text-p">
                         Programledare
                       </p>
-                      <p className="font-sans text-xl text-primary sm:text-2xl lg:text-4xl">
+                      <p className="font-sans text-white text-h4 leading-tight">
                         {filteredShow.fields.host.length > 1
                           ? filteredShow.fields.host.join(", ")
                           : filteredShow.fields.host}
@@ -49,12 +49,13 @@ export default function Show() {
       </div>
 
       <section>
-        <div className="container max-w-[1380px] px-4">
+        <div className="max-w-[1380px] mx-auto px-4">
           <p
-            className="mb-4 cursor-pointer font-bold hover:text-accent"
+            className="mb-4 cursor-pointer flex text-psm items-center gap-4 font-bold hover:text-accent"
             onClick={() => {
               navigate("/program");
             }}>
+            <i class="fa-solid fa-arrow-left"></i>
             Tillbaka
           </p>
           {loading && <div>Laddar...</div>}
@@ -77,12 +78,12 @@ export default function Show() {
                       </div>
                     )}
                     <div className="order-1 max-w-lg">
-                      <div className="prose mb-8 text-xl leading-8">
+                      <div className="prose mb-8 text-p text-body leading-8">
                         {filteredShow.fields.description}{" "}
                       </div>
                       {filteredShow.fields.streamurl && (
                         <button
-                          className="btn mb-8 flex items-center gap-4 rounded-full bg-primary py-4 px-8 hover:bg-accent hover:text-white"
+                          className="btn mb-8 flex items-center gap-4 py-4 px-8"
                           onClick={() => {
                             setStreamSrc(filteredShow.fields.streamurl);
                             setStreamSrcTitle(filteredShow.fields.title);

@@ -28,21 +28,12 @@ function Hero({
               filterCurrentShow().map((show) => {
                 return (
                   <div key={show.sys.id}>
-                    <div className="flex items-center gap-8 text-center">
-                      {show.fields.image && (
-                        <div className="h-[450px] w-[450px]">
-                          <img
-                          className="h-full w-full object-cover"
-                            src={show.fields.image.fields.file.url}
-                            alt={show.fields.title}
-                          />
-                        </div>
-                      )}
+                    <div className="flex items-center gap-24 text-center">
                       <div className="text-left">
                         <p className="mb-2 font-bold text-primary md:mb-4 md:text-2xl">
                           Just nu på Radio 88
                         </p>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+                        <h1 className="mt-0 mb-0 text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
                           {show.fields.title}
                         </h1>
                         {!isPlaying && (
@@ -55,6 +46,15 @@ function Hero({
                           </div>
                         )}
                       </div>
+                      {show.fields.image && (
+                        <div className="h-[450px] shadow-md">
+                          <img
+                            className="h-full w-full object-cover"
+                            src={show.fields.image.fields.file.url}
+                            alt={show.fields.title}
+                          />
+                        </div>
+                      )}
                     </div>
                   </div>
                 );

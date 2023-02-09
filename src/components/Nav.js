@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import Player from "./Player";
+import { StreamContext } from "../Contexts/StreamContext";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [display] = useState("none");
+  const { playLive, streamSrc, liveStream } = useContext(StreamContext);
 
   function toggleMenu() {
     setIsOpen(!isOpen);
@@ -45,52 +48,62 @@ export default function Nav() {
               className="w-full pl-2"
             />
           </Link>
-          <nav
-            onClick={toggleMenu}
-            className="nav flex cursor-pointer items-center justify-end">
-            <li className="fa-solid fa-bars pointer-events-none px-2 text-2xl sm:px-4 md:px-6 lg:px-10 xl:hidden"></li>
-            <ul
-              className={`${isOpen ? "flex-col" : "hidden"}
-               absolute top-full left-0 w-full items-center justify-end bg-primary
-              font-sans text-2xl xl:relative xl:top-0 xl:flex
-              xl:h-full xl:gap-2`}>
-              <Link
-                to="/"
-                className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 ease-out hover:bg-accent hover:text-primary hover:transition-colors xl:w-auto xl:border-none xl:px-4">
-                <li className="flex h-full items-center">Hem</li>
-              </Link>
-              <Link
-                to="/tabla"
-                className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
-                <li className="flex h-full items-center">Tablå</li>
-              </Link>
-              <Link
-                to="/program"
-                className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
-                <li className="flex h-full items-center">Program</li>
-              </Link>
-              <Link
-                to="/om"
-                className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
-                <li className="hover:bg-accent hover:text-primary">Om oss</li>
-              </Link>
-              <Link
-                to="/kontakt"
-                className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
-                <li className="flex h-full items-center">Kontakt</li>
-              </Link>
-              <Link
-                to="/annonsera"
-                className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
-                <li className="flex h-full items-center">Annonsera</li>
-              </Link>
-              <Link
-                to="/supporterklubben"
-                className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
-                <li className="flex h-full items-center">Supporterklubben</li>
-              </Link>
-            </ul>
-          </nav>
+          <div class="flex items-center">
+            {streamSrc !== liveStream && (
+              <button
+                className="btn md:text-md bg-accent px-4 py-2 lg:hidden text-pxs text-primary sm:right-16 md:right-[5rem]"
+                onClick={playLive}
+                style={{ display: { display } }}>
+                Lyssna Live
+              </button>
+            )}
+            <nav
+              onClick={toggleMenu}
+              className="nav flex cursor-pointer items-center justify-end">
+              <li className="fa-solid fa-bars pointer-events-none px-2 text-2xl sm:px-4 md:px-6 lg:px-10 xl:hidden"></li>
+              <ul
+                className={`${isOpen ? "flex-col" : "hidden"}
+                 absolute top-full left-0 w-full items-center justify-end bg-primary
+                font-sans text-2xl xl:relative xl:top-0 xl:flex
+                xl:h-full xl:gap-2`}>
+                <Link
+                  to="/"
+                  className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 ease-out hover:bg-accent hover:text-primary hover:transition-colors xl:w-auto xl:border-none xl:px-4">
+                  <li className="flex h-full items-center">Hem</li>
+                </Link>
+                <Link
+                  to="/tabla"
+                  className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
+                  <li className="flex h-full items-center">Tablå</li>
+                </Link>
+                <Link
+                  to="/program"
+                  className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
+                  <li className="flex h-full items-center">Program</li>
+                </Link>
+                <Link
+                  to="/om"
+                  className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
+                  <li className="hover:bg-accent hover:text-primary">Om oss</li>
+                </Link>
+                <Link
+                  to="/kontakt"
+                  className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
+                  <li className="flex h-full items-center">Kontakt</li>
+                </Link>
+                <Link
+                  to="/annonsera"
+                  className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
+                  <li className="flex h-full items-center">Annonsera</li>
+                </Link>
+                <Link
+                  to="/supporterklubben"
+                  className="flex h-full w-full cursor-pointer items-center border-b border-primary-500 p-4 hover:bg-accent hover:text-primary xl:w-auto xl:border-none xl:px-4">
+                  <li className="flex h-full items-center">Supporterklubben</li>
+                </Link>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
       <Player />

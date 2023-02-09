@@ -10,9 +10,11 @@ function PageHeader({ title, width, info }) {
       />
       <div className="hero-overlay absolute inset-0 -z-10 bg-[#790027] opacity-95"></div>
       <div
-        className={`max-w-[${width}] align-center container mx-auto flex justify-between px-4`}>
+        className={`max-w-[1380px] align-center mx-auto flex justify-between`}>
         <h1 className="my-0 self-center">{title}</h1>
-        <p className="my-0 max-w-2xl text-left text-2xl text-white">{info}</p>
+        <p className="max-w-2xl self-center py-0 text-left text-p text-white">
+          {info}
+        </p>
       </div>
     </section>
   );

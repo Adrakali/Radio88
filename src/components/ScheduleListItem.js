@@ -27,23 +27,23 @@ function ScheduleListItem({ weekday }) {
       {isLoading && <p>Laddar...</p>}
       {data &&
         listItems.map((show) => (
-          <div key={show.sys.id}>
+          <div key={show.sys.id} className=" hover:bg-accent group">
             <Link to={`/program/${show.fields.slug}`}>
-              <div key={show.sys.id} className="mb-2 py-1">
-                <div className="flex justify-between border-b border-black pb-4">
-                  <h3 className="mb-0 font-body text-2xl">
+              <div key={show.sys.id} className="">
+                <div className="flex justify-between border-b border-black py-4 group-hover:px-4">
+                  <p className="transition-color mb-0 flex items-center justify-between font-body text-2xl font-bold tracking-tight text-black duration-150 ease-out group-hover:text-primary">
                     {show.fields.title}
-                  </h3>
+                  </p>
                   <div>
-                    <p className="font-body text-2xl">
+                    <p className="transition-color mb-0 flex items-center justify-between font-body text-2xl font-bold tracking-tight text-black duration-150 ease-out group-hover:text-primary">
                       {`${show.fields.startTime} -
                       ${show.fields.endTime}`}
                     </p>
                     {show.fields.week && show.fields.week[0] === "Even" && (
-                      <p>Jämna veckor</p>
+                      <p className="text-psm font-bold group-hover:text-primary">Jämna veckor</p>
                     )}
                     {show.fields.week && show.fields.week[0] === "Odd" && (
-                      <p>Udda veckor</p>
+                      <p className="text-psm font-bold group-hover:text-primary">Udda veckor</p>
                     )}
                     {show.fields.cancelled && <p>Inställd denna vecka</p>}
                   </div>

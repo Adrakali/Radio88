@@ -15,30 +15,28 @@ function FacebookPosts() {
   });
 
   return (
-    <section>
-      <div className="container">
-        <div className="grid gap-8">
-          {error && <p>{error}</p>}
-          {isLoading && <p>Laddar...</p>}
-          {data &&
-            data
-              .slice(0, visibleCards)
-              .map((post) => (
-                <FacebookCard
-                  key={post.id}
-                  from={post.from.name}
-                  message={post.message}
-                  image={post.full_picture}
-                  link={post.permalink_url}
-                  created={post.created_time}
-                />
-              ))}
-          {data && visibleCards < data.length && (
-            <button className="btn" onClick={loadMore}>
-              Ladda fler
-            </button>
-          )}
-        </div>
+    <section className="p-0">
+      <div className="grid gap-4">
+        {error && <p>{error}</p>}
+        {isLoading && <p>Laddar...</p>}
+        {data &&
+          data
+            .slice(0, visibleCards)
+            .map((post) => (
+              <FacebookCard
+                key={post.id}
+                from={post.from.name}
+                message={post.message}
+                image={post.full_picture}
+                link={post.permalink_url}
+                created={post.created_time}
+              />
+            ))}
+        {data && visibleCards < data.length && (
+          <button className="btn" onClick={loadMore}>
+            Ladda fler
+          </button>
+        )}
       </div>
     </section>
   );

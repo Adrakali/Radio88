@@ -43,7 +43,7 @@ export default function ShowCard({
           </p>
           {streamUrl && (
             <button
-              className="btn mt-auto flex items-center gap-4 rounded-full bg-primary py-2 px-6 hover:bg-accent hover:text-white"
+              className="btn mt-auto flex items-center gap-4 rounded-full px-6"
               onClick={handleButtonClick}>
               <i className="fa-solid fa-play"></i>
               Lyssna på {title}

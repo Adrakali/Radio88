@@ -21,7 +21,7 @@ function Schedule() {
       <PageHeader width={"960px"} title={"Tablå"} info={`Denna vecka är ${currentWeek === "Odd" ? "udda" : "jämn"}`}/>
 
       <section>
-        <div className="container max-w-4xl">
+        <div className="max-w-4xl mx-auto">
           <div className="flex-grow">
             {weekdays.map((weekday) => {
               return (

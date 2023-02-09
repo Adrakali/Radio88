@@ -22,6 +22,8 @@ module.exports = {
         h4: "var(--step-2)",
         h5: "var(--step-1)",
         p: "var(--step-0)",
+        psm: "var(--step--1)",
+        pxs: "var(--step--2)",
       },
       colors: {
         primary: {

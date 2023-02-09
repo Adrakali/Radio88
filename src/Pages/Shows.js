@@ -15,8 +15,8 @@ export default function Shows() {
     <main>
     <PageHeader width={"1380px"} title={"Program"} />
     <section>
-      <div className="mx-auto max-w-[1380px] px-4">
-        <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mx-auto max-w-[1380px]">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {isLoading && <h1 className="col-span-3 text-center">Laddar...</h1>}
           {error && <div>{error}</div>}
           {data &&

@@ -6,7 +6,7 @@ function Ads() {
     <div>
       <PageHeader title={"Annonsera"} width={"1380px"} />
       <section>
-        <div class="container">
+        <div class="max-w-[1380px] mx-auto">
           <h2 className="mb-8">Visa upp er hos oss</h2>
           <div className="gap-24 lg:flex">
             <div>
@@ -53,7 +53,7 @@ function Ads() {
         </div>
       </section>
       <section className="bg-primary-300 py-10 px-4 lg:py-20">
-        <div className="container">
+        <div className="max-w-[1380px] mx-auto">
           <h2 className="mb-4 sm:mb-8">Reklamansvarig</h2>
           <div className="gap-8 sm:flex">
             <div className="mb-4 sm:max-w-[350px]">
@@ -68,16 +68,22 @@ function Ads() {
                     Telefon
                   </p>
                 </div>
-                <p className="mb-0 font-bold tracking-tight">0700 — 200 100</p>
+                <a href="tel:+1234567890">
+                  <p className="mb-0 font-bold tracking-tight">
+                    0700 — 200 100
+                  </p>
+                </a>
               </div>
               <div>
                 <div className="flex items-center text-accent">
                   <i className="fa-sharp fa-solid fa-envelope mr-4"></i>
                   <p className="mb-0 text-lg font-semibold uppercase">E-mail</p>
                 </div>
-                <p className="mb-0 font-bold tracking-tight">
-                  sales@radio88.se
-                </p>
+                <a href="mailto:sales@radio88.se">
+                  <p className="mb-0 font-bold tracking-tight">
+                    sales@radio88.se
+                  </p>
+                </a>
               </div>
             </div>
           </div>
