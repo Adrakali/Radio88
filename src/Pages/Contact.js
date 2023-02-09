@@ -40,7 +40,7 @@ export default function Contact() {
     <main>
       <PageHeader width={"1380px"} title={"Kontakt"} />
 
-      <div className="align-center max-w-[1380px] mx-auto py-20 px-4 lg:flex-row flex flex-col gap-24">
+      <div className="align-center mx-auto flex max-w-[1380px] flex-col gap-24 py-20 px-4 lg:flex-row">
         <section className="flex-grow py-0">
           <h2 className="mb-4">Kontaktformulär</h2>
           <p className="mb-10 max-w-[50ch]">
@@ -120,7 +120,7 @@ export default function Contact() {
             ) : (
               <p>Skickar ditt meddelande...</p>
             )}
-          </form>        
+          </form>
         </section>
 
         <section className="flex-grow bg-primary p-8">

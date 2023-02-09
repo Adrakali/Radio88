@@ -18,10 +18,14 @@ function Schedule() {
 
   return (
     <div>
-      <PageHeader width={"960px"} title={"Tablå"} info={`Denna vecka är ${currentWeek === "Odd" ? "udda" : "jämn"}`}/>
+      <PageHeader
+        width={"960px"}
+        title={"Tablå"}
+        info={`Denna vecka är ${currentWeek === "Odd" ? "udda" : "jämn"}`}
+      />
 
       <section>
-        <div className="max-w-4xl mx-auto">
+        <div className="mx-auto max-w-4xl">
           <div className="flex-grow">
             {weekdays.map((weekday) => {
               return (

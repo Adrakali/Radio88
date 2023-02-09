@@ -6,7 +6,7 @@ function Ads() {
     <div>
       <PageHeader title={"Annonsera"} width={"1380px"} />
       <section>
-        <div class="max-w-[1380px] mx-auto">
+        <div class="mx-auto max-w-[1380px]">
           <h2 className="mb-8">Visa upp er hos oss</h2>
           <div className="gap-24 lg:flex">
             <div>
@@ -53,7 +53,7 @@ function Ads() {
         </div>
       </section>
       <section className="bg-primary-300 py-10 px-4 lg:py-20">
-        <div className="max-w-[1380px] mx-auto">
+        <div className="mx-auto max-w-[1380px]">
           <h2 className="mb-4 sm:mb-8">Reklamansvarig</h2>
           <div className="gap-8 sm:flex">
             <div className="mb-4 sm:max-w-[350px]">
