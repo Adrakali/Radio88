@@ -55,7 +55,7 @@ export default function Show() {
             onClick={() => {
               navigate("/program");
             }}>
-            <i class="fa-solid fa-arrow-left"></i>
+            <i className="fa-solid fa-arrow-left"></i>
             Tillbaka
           </p>
           {loading && <div>Laddar...</div>}

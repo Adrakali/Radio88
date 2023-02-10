@@ -48,7 +48,7 @@ export default function Nav() {
               className="w-full pl-2"
             />
           </Link>
-          <div class="flex items-center">
+          <div className="flex items-center">
             {streamSrc !== liveStream && (
               <button
                 className="btn md:text-md bg-accent px-4 py-2 text-pxs text-primary sm:right-16 md:right-[5rem] lg:hidden"

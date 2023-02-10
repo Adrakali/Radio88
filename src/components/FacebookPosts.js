@@ -4,9 +4,10 @@ import FacebookCard from "./FacebookCard";
 
 function FacebookPosts() {
   const { data, isLoading, error } = useFacebook();
-  const [visibleCards, setVisibleCards] = useState(5);
+  const [visibleCards, setVisibleCards] = useState(3);
   function loadMore() {
-    setVisibleCards((prev) => prev + 5);
+    if (visibleCards >= 9) return;
+    setVisibleCards((prev) => prev + 3);
   }
 
   //sortera data efter datum
@@ -32,7 +33,7 @@ function FacebookPosts() {
                 created={post.created_time}
               />
             ))}
-        {data && visibleCards < data.length && (
+        {data && visibleCards < 9 && (
           <button className="btn" onClick={loadMore}>
             Ladda fler
           </button>

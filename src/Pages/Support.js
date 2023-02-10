@@ -6,7 +6,7 @@ function Support() {
     <main>
       <PageHeader title={"Supporterklubben"} width={"1380px"} />
       <section>
-        <div class="mx-auto max-w-[1380px] items-center gap-16 lg:flex">
+        <div className="mx-auto max-w-[1380px] items-center gap-16 lg:flex">
           <div>
             <h2 className="mb-8 max-w-2xl">
               Visst vill du att den här radiokanalen ska fortsätta spela musiken

@@ -19,7 +19,7 @@ function TodayShows({ filterTodaysShows, data }) {
                       <Link
                         to={`/program/${show.fields.slug}`}
                         className="w-full">
-                        <div class="flex items-center justify-between">
+                        <div className="flex items-center justify-between">
                           <div>
                             <div className="transition-color flex items-center gap-2  text-black duration-150 ease-out group-hover:text-primary">
                               <i className="fa-solid fa-clock text-sm"></i>

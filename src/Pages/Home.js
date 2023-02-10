@@ -6,6 +6,7 @@ import FacebookPosts from "../Components/FacebookPosts";
 import CancelBanner from "../Components/CancelBanner";
 import Hero from "../Components/Hero";
 import TodaysShows from "../Components/TodayShows";
+import Slider from "../Components/Slider";
 
 export default function Home() {
   const { data, isLoading, error } = useContentful();
@@ -19,6 +20,17 @@ export default function Home() {
     playRadio,
     isPlaying,
   } = useContext(StreamContext);
+
+  const images = [
+    "2hlasse.png",
+    "aladdin.jpg",
+    "fredagsmys.png",
+    "fredans.png",
+    "goldenhits.jpg",
+    "justintime.jpg",
+    "svensktoppar.png",
+    "dansband.png",
+  ];
 
   // Get the current time
   useEffect(() => {
@@ -116,11 +128,7 @@ export default function Home() {
 
       <section className="mx-auto grid max-w-[1380px] gap-6 lg:grid-cols-[1fr_0.5fr]">
         <div>
-          <img
-            src="images/aladdin-banner.jpg"
-            className="mb-6 w-full"
-            alt="Radio 88 nyhetsbanner"
-          />
+          <Slider images={images} />
           <FacebookPosts />
         </div>
         <TodaysShows filterTodaysShows={filterTodaysShows} data={data} />

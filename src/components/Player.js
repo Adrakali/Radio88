@@ -93,12 +93,12 @@ export default function Player() {
               <div className="mr-1 font-body text-pxs uppercase tracking-tight sm:mr-0 sm:font-bold sm:text-primary md:block">
                 Du lyssnar på
               </div>
-              <div className="font-body text-p font-bold uppercase sm:font-sans sm:font-normal">
+              <div className="font-body text-pxs font-bold uppercase sm:font-sans sm:text-p sm:font-normal">
                 {streamSrcTitle}
               </div>
             </div>
           ) : (
-            <div className="md:mt-2 mt-1">
+            <div className="mt-1 md:mt-2">
               {isPlaying && (
                 <div className="inline bg-accent py-0 px-1 font-body text-pxs font-bold uppercase text-white sm:text-psm">
                   Du lyssnar LIVE

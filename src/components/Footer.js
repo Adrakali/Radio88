@@ -33,14 +33,14 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col items-end sm:basis-1/5">
+        <div className="flex flex-col sm:items-end sm:basis-1/5">
           <h3 className="mb-4 text-p">Följ oss</h3>
           <ul className="flex gap-4">
             <a
               href="https://www.facebook.com/radio88.se/"
               target="_blank"
               rel="noopener noreferrer">
-              <i class="fa-brands fa-square-facebook text-h3"></i>
+              <i className="fa-brands fa-square-facebook text-h3"></i>
             </a>
           </ul>
         </div>

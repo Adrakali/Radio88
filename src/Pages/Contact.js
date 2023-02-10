@@ -40,8 +40,8 @@ export default function Contact() {
     <main>
       <PageHeader width={"1380px"} title={"Kontakt"} />
 
-      <div className="align-center mx-auto flex max-w-[1380px] flex-col gap-24 py-20 px-4 lg:flex-row">
-        <section className="flex-grow py-0 -mx-4">
+      <div className="align-center mx-auto flex max-w-[1380px] lg:py-20 lg:px-0 px-8 py-8 flex-col lg:gap-24 gap-16 lg:flex-row">
+        <section className="flex-grow p-0">
           <h2 className="mb-4">Kontaktformulär</h2>
           <p className="mb-10 max-w-[50ch]">
             Vi vill gärna veta vad du tycker om Radio 88. Skriv gärna några

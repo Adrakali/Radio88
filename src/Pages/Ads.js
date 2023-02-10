@@ -6,7 +6,7 @@ function Ads() {
     <div>
       <PageHeader title={"Annonsera"} width={"1380px"} />
       <section>
-        <div class="mx-auto max-w-[1380px]">
+        <div className="mx-auto max-w-[1380px]">
           <h2 className="mb-8">Visa upp er hos oss</h2>
           <div className="gap-24 lg:flex">
             <div>
@@ -30,19 +30,19 @@ function Ads() {
             <div className="w-full">
               <div className="flex w-full basis-auto flex-col flex-nowrap gap-4 bg-primary p-4 md:p-8 lg:gap-10">
                 <div className="flex items-center">
-                  <i class="fa-solid fa-circle-check mr-4 text-h5 text-accent"></i>
+                  <i className="fa-solid fa-circle-check mr-4 text-h5 text-accent"></i>
                   <p className="mb-0 font-body text-h5 leading-8 tracking-tight">
                     <span className="font-bold">30.000</span> lyssnare
                   </p>
                 </div>
                 <div className="flex items-center">
-                  <i class="fa-solid fa-circle-check mr-4 text-h5 text-accent"></i>
+                  <i className="fa-solid fa-circle-check mr-4 text-h5 text-accent"></i>
                   <p className="mb-0 font-body text-h5 leading-8 tracking-tight">
                     <span className="font-bold">90%</span> över 35 år
                   </p>
                 </div>
                 <div className="flex items-center">
-                  <i class="fa-solid fa-circle-check mr-4 text-h5 text-accent"></i>
+                  <i className="fa-solid fa-circle-check mr-4 text-h5 text-accent"></i>
                   <p className="mb-0 font-body text-h5 leading-8 tracking-tight">
                     Från <span className="font-bold">1.500:-</span>/mån
                   </p>
