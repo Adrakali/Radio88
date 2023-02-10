@@ -20,7 +20,7 @@ export default function Shows() {
             {isLoading && <h1 className="col-span-3 text-center">Laddar...</h1>}
             {error && <div>{error}</div>}
             {data &&
-              data.map((show) => (
+              data.filter(item => !item.fields.hidden).map((show) => (
                 <ShowCard
                   key={show.sys.id}
                   id={show.sys.id}

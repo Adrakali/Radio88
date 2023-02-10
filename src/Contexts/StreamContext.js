@@ -11,7 +11,7 @@ export function StreamProvider({ children }) {
     "https://streaming.943.se/radio88"
   );
   const [streamSrcTitle, setStreamSrcTitle] = useState(
-    "Vi spelar musiken som du glömt att du kommer ihåg"
+    "Radio 88 Partille"
   );
 
   const liveStream = "https://streaming.943.se/radio88";
@@ -23,7 +23,7 @@ export function StreamProvider({ children }) {
     audio.current.load();
     streamSrc !== liveStream
       ? setIsPlaying(true)
-      : setStreamSrcTitle("Vi spelar musiken som du glömt att du kommer ihåg");
+      : setStreamSrcTitle("Radio 88 Partille");
   }, [streamSrc]);
 
   useEffect(() => {

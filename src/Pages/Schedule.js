@@ -30,7 +30,7 @@ function Schedule() {
             {weekdays.map((weekday) => {
               return (
                 <div key={weekday} className="mb-12">
-                  <h2 className="mb-8 bg-primary px-4 py-2 text-3xl text-black">
+                  <h2 className=" bg-primary px-4 py-2 text-3xl text-black">
                     {weekday}
                   </h2>
                   <ScheduleListItem weekday={weekday} />

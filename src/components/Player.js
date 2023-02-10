@@ -79,7 +79,7 @@ export default function Player() {
     <div className="player mx-auto flex h-16 max-w-[1380px] items-center text-white lg:h-20">
       <button
         onClick={playRadio}
-        className="play-box-content-box h-full flex items-center justify-center w-16 cursor-pointer bg-[#1a1a1a] text-4xl font-medium hover:bg-primary hover:text-accent lg:w-[6rem]">
+        className="play-box-content-box flex h-full w-16 cursor-pointer items-center justify-center bg-[#1a1a1a] text-4xl font-medium hover:bg-primary hover:text-accent lg:w-[6rem]">
         {isPlaying ? (
           <i className="fa-solid fa-pause"></i>
         ) : (
@@ -89,22 +89,22 @@ export default function Player() {
       <div className="flex-grow items-center justify-between px-4 font-medium sm:flex sm:px-6">
         <div>
           {streamSrc !== liveStream ? (
-            <div className="flex flex-grow sm:flex-col">
-              <div className="mr-1 font-body text-base font-bold uppercase tracking-tight sm:mr-0 sm:text-primary md:block md:text-base">
+            <div className="flex flex-grow items-center sm:flex-col sm:items-start">
+              <div className="mr-1 font-body text-pxs uppercase tracking-tight sm:mr-0 sm:font-bold sm:text-primary md:block">
                 Du lyssnar på
               </div>
-              <div className="text-base font-bold sm:font-sans sm:text-2xl sm:font-normal">
+              <div className="font-body text-p font-bold uppercase sm:font-sans sm:font-normal">
                 {streamSrcTitle}
               </div>
             </div>
           ) : (
-            <div>
+            <div className="md:mt-2 mt-1">
               {isPlaying && (
-                <div className="inline bg-accent py-0 px-1 font-body text-xs font-bold uppercase text-white sm:text-sm">
+                <div className="inline bg-accent py-0 px-1 font-body text-pxs font-bold uppercase text-white sm:text-psm">
                   Du lyssnar LIVE
                 </div>
               )}
-              <div className="font-sans text-sm sm:text-p lg:block">
+              <div className="font-sans text-h5 leading-tight lg:block">
                 {streamSrcTitle}
               </div>
             </div>
@@ -118,7 +118,9 @@ export default function Player() {
               <div className="text-left">Laddar...</div>
             ) : (
               <div className="flex w-full items-center">
-                <span className="text-sm">{calcTime(currentTime)}</span>
+                <span className="font-body text-pxs">
+                  {calcTime(currentTime)}
+                </span>
                 <input
                   ref={progressBar}
                   defaultValue="0"
@@ -126,14 +128,14 @@ export default function Player() {
                   className="player__seek mx-2 h-1 w-full cursor-pointer appearance-none bg-[#3f3f3f]"
                   onChange={progressBarUpdate}
                 />
-                <span className="text-sm">{calcTime(duration)}</span>
+                <span className="font-body text-pxs">{calcTime(duration)}</span>
               </div>
             )}
           </div>
         )}
         {streamSrc !== liveStream && (
           <button
-            className="btn md:text-md bg-primary px-4 hidden lg:block py-2 text-pxs text-black sm:right-16 md:right-[5rem] lg:static"
+            className="btn md:text-md hidden bg-primary px-4 py-2 text-pxs text-black sm:right-16 md:right-[5rem] lg:static lg:block"
             onClick={playLive}
             style={{ display: { display } }}>
             Lyssna Live

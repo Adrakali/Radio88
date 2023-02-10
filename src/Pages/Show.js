@@ -20,7 +20,7 @@ export default function Show() {
             .map((filteredShow) => {
               return (
                 <div
-                  className="flex flex-col sm:flex-row max-w-[1380px] mx-auto sm:items-end items-start justify-between px-4 py-6 text-primary lg:py-8"
+                  className="mx-auto flex max-w-[1380px] flex-col items-start justify-between px-4 py-6 text-primary sm:flex-row sm:items-end lg:py-8"
                   key={filteredShow.fields.title}>
                   <div>
                     <h1 className="mb-0 leading-none lg:text-h1">
@@ -32,11 +32,11 @@ export default function Show() {
                     </p>
                   </div>
                   {filteredShow.fields.host && (
-                    <div className="sm:text-right text-left">
-                      <p className="font-bold text-white text-p">
+                    <div className="text-left sm:text-right">
+                      <p className="text-p font-bold text-white">
                         Programledare
                       </p>
-                      <p className="font-sans text-white text-h4 leading-tight">
+                      <p className="font-sans text-h4 leading-tight text-white">
                         {filteredShow.fields.host.length > 1
                           ? filteredShow.fields.host.join(", ")
                           : filteredShow.fields.host}
@@ -49,9 +49,9 @@ export default function Show() {
       </div>
 
       <section>
-        <div className="max-w-[1380px] mx-auto px-4">
+        <div className="mx-auto max-w-[1380px] px-4">
           <p
-            className="mb-4 cursor-pointer flex text-psm items-center gap-4 font-bold hover:text-accent"
+            className="mb-4 flex cursor-pointer items-center gap-4 text-psm font-bold hover:text-accent"
             onClick={() => {
               navigate("/program");
             }}>
@@ -67,7 +67,7 @@ export default function Show() {
                 return (
                   <article
                     key={filteredShow.sys.id}
-                    className="flex flex-col justify-center gap-16 md:flex-row">
+                    className="flex flex-col justify-center md:gap-16 md:flex-row">
                     {filteredShow.fields.image && (
                       <div className="order-2 md:order-1">
                         <img
@@ -78,9 +78,13 @@ export default function Show() {
                       </div>
                     )}
                     <div className="order-1 max-w-lg">
-                      <div className="prose mb-8 text-p text-body leading-8">
-                        {filteredShow.fields.description}{" "}
-                      </div>
+                      {filteredShow.fields.description ? (
+                        <div className="prose mb-8 font-body text-p">
+                          {filteredShow.fields.description}
+                        </div>
+                      ) : (
+                        <p className="mb-8 font-bold text-p">Programinfo kommer snart...</p>
+                      )}
                       {filteredShow.fields.streamurl && (
                         <button
                           className="btn mb-8 flex items-center gap-4 py-4 px-8"

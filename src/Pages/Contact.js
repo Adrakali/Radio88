@@ -41,7 +41,7 @@ export default function Contact() {
       <PageHeader width={"1380px"} title={"Kontakt"} />
 
       <div className="align-center mx-auto flex max-w-[1380px] flex-col gap-24 py-20 px-4 lg:flex-row">
-        <section className="flex-grow py-0">
+        <section className="flex-grow py-0 -mx-4">
           <h2 className="mb-4">Kontaktformulär</h2>
           <p className="mb-10 max-w-[50ch]">
             Vi vill gärna veta vad du tycker om Radio 88. Skriv gärna några
@@ -130,14 +130,18 @@ export default function Contact() {
               <i className="fa-sharp fa-solid fa-envelope mr-4"></i>
               <p className="text-lg font-semibold uppercase">E-mail</p>
             </div>
-            <p className="font-bold tracking-tight">info@radio88.se</p>
+            <a href="mailto:info@radio88.se">
+              <p className="font-bold tracking-tight">info@radio88.se</p>
+            </a>
           </div>
           <div className="mb-8">
             <div className="flex items-center text-accent">
               <i className="fa-sharp fa-solid fa-phone mr-4"></i>
               <p className="text-lg font-semibold uppercase">Telefon</p>
             </div>
-            <p className="font-bold tracking-tight">031-26 10 90</p>
+            <a href="tel:+4631261090">
+              <p className="font-bold tracking-tight">031-26 10 90</p>
+            </a>
           </div>
           <div className="mb-8">
             <div className="flex items-center text-accent">

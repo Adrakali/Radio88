@@ -12,6 +12,7 @@ import { TimeProvider } from "./Contexts/TimeContext";
 import About from "./Pages/About";
 import Ads from "./Pages/Ads";
 import Support from "./Pages/Support";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
               <Route path="/program/:id" element={<Show />} />
             </Routes>
           </main>
+          <Footer />
         </StreamProvider>
       </TimeProvider>
     </BrowserRouter>

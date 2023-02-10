@@ -51,7 +51,7 @@ export default function Nav() {
           <div class="flex items-center">
             {streamSrc !== liveStream && (
               <button
-                className="btn md:text-md bg-accent px-4 py-2 lg:hidden text-pxs text-primary sm:right-16 md:right-[5rem]"
+                className="btn md:text-md bg-accent px-4 py-2 text-pxs text-primary sm:right-16 md:right-[5rem] lg:hidden"
                 onClick={playLive}
                 style={{ display: { display } }}>
                 Lyssna Live

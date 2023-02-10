@@ -114,7 +114,7 @@ export default function Home() {
         playRadio={playRadio}
       />
 
-      <section className="mx-auto grid max-w-[1380px] gap-6 py-14 md:grid-cols-[1fr_0.5fr]">
+      <section className="mx-auto grid max-w-[1380px] gap-6 lg:grid-cols-[1fr_0.5fr]">
         <div>
           <img
             src="images/aladdin-banner.jpg"

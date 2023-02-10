@@ -28,8 +28,8 @@ function Hero({
               filterCurrentShow().map((show) => {
                 return (
                   <div key={show.sys.id}>
-                    <div className="flex items-center gap-24 text-center">
-                      <div className="text-left">
+                    <div className="flex flex-col items-center gap-8 text-center lg:flex-row lg:gap-24">
+                      <div className="order-2 lg:text-left">
                         <p className="mb-2 font-bold text-primary md:mb-4 md:text-2xl">
                           Just nu på Radio 88
                         </p>
@@ -40,16 +40,16 @@ function Hero({
                           <div>
                             <button
                               onClick={playRadio}
-                              className="rounded-full bg-primary px-16 py-4 font-body font-extrabold uppercase text-black md:mt-4 lg:mt-8 ">
+                              className="rounded-full bg-primary px-16 py-4 font-body font-extrabold uppercase text-black mt-4 md:mt-4 lg:mt-8 ">
                               <i className="fa-solid fa-play mr-4"></i>Lyssna nu
                             </button>
                           </div>
                         )}
                       </div>
                       {show.fields.image && (
-                        <div className="h-[450px] shadow-md">
+                        <div className="w-1/2 shadow-md lg:w-[450px]">
                           <img
-                            className="h-full w-full object-cover"
+                            className="w-full"
                             src={show.fields.image.fields.file.url}
                             alt={show.fields.title}
                           />
@@ -61,14 +61,14 @@ function Hero({
               })
             ) : (
               <div className="text-center text-primary">
-                <h1 className="max-w-[27ch] my-0">
+                <h1 className="my-0 max-w-[27ch]">
                   Vi spelar musiken som du glömt att du kommer ihåg
                 </h1>
                 {!isPlaying && (
                   <div>
                     <button
                       onClick={playRadio}
-                      className="mt-8 rounded-full bg-primary font-body px-16 py-4 font-extrabold uppercase text-black md:mt-12 lg:mt-16 ">
+                      className="mt-8 rounded-full bg-primary px-16 py-4 font-body font-extrabold uppercase text-black md:mt-12 lg:mt-16 ">
                       <i className="fa-solid fa-play mr-4"></i>Lyssna nu
                     </button>
                   </div>
