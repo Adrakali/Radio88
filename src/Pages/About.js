@@ -41,9 +41,9 @@ function About() {
             obemannat, ja då rullade musiken på – dygnet runt! Musikälskarna
             applåderade.
           </p>
-          <article className="mb-8 flex items-center bg-primary">
-            <div className="p-8">
-              <h2 className="mb-8 leading-tight text-accent">
+          <article className="mb-8 sm:flex items-center bg-primary">
+            <div className="sm:p-8 p-4">
+              <h2 className="sm:mb-8 leading-tight text-accent">
                 Några av programledarna från Radio FM tiden
               </h2>
               <p>
@@ -75,15 +75,15 @@ function About() {
             många år. Ända till sin bortgång 2011 var Ulf djupt engagerad i
             teknik och programutbud.
           </p>
-          <article className="flex items-center bg-primary">
+          <article className="sm:flex items-center bg-primary">
             <div>
               <img src="/images/image (1).webp" alt="Programledare från 2012" />
             </div>
-            <div className="p-8">
-              <h2 className="mb-8 leading-tight text-accent">
+            <div className="p-4 sm:p-8">
+              <h2 className="mb-4 sm:mb-8 leading-tight text-accent">
                 Så här kan det också se ut när man sänder radio live
               </h2>
-              <p className="mb-8">
+              <p className="sm:mb-8">
                 Johanna Bergqvist (med praktikanten Emily Mervik i knät) samt
                 Mats Adelin i bakgrunden 2012.
               </p>

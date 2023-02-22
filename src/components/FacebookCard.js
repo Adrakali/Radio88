@@ -8,7 +8,7 @@ function FacebookCard({ from, message, image, link, created }) {
     <a href={link} target="_blank" rel="noreferrer">
       <article className="w-full border border-gray-200 bg-white">
         <div>
-          <div className={image ? "p-8" : "px-8 pt-8"}>
+          <div className={image ? "p-4 md:p-8" : "px-4 pt-4 md:px-8 md:pt-8"}>
             <div className="flex items-center">
               <img
                 src="./images/fb-logo.jpeg"
@@ -25,7 +25,7 @@ function FacebookCard({ from, message, image, link, created }) {
           <div>
             <img src={image} className="w-full" alt="Programbild" />
           </div>
-          {message && <p className="p-8">{message}</p>}
+          {message && <p className="p-4 md:p-8">{message}</p>}
         </div>
       </article>
     </a>

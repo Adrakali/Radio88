@@ -32,11 +32,9 @@ export default function Show() {
                     </p>
                   </div>
                   {filteredShow.fields.host && (
-                    <div className="text-left sm:text-right">
-                      <p className="text-p font-bold text-white">
-                        Programledare
-                      </p>
-                      <p className="font-sans text-h4 leading-tight text-white">
+                    <div className="flex gap-2 text-left sm:block sm:text-right">
+                      <p className="text-p text-white">Programledare</p>
+                      <p className="font-bold text-white sm:font-sans sm:text-h4 sm:font-normal sm:leading-tight">
                         {filteredShow.fields.host.length > 1
                           ? filteredShow.fields.host.join(", ")
                           : filteredShow.fields.host}
@@ -67,7 +65,7 @@ export default function Show() {
                 return (
                   <article
                     key={filteredShow.sys.id}
-                    className="flex flex-col justify-center md:gap-16 md:flex-row">
+                    className="flex flex-col justify-center md:flex-row md:gap-16">
                     {filteredShow.fields.image && (
                       <div className="order-2 md:order-1">
                         <img
@@ -83,7 +81,9 @@ export default function Show() {
                           {filteredShow.fields.description}
                         </div>
                       ) : (
-                        <p className="mb-8 font-bold text-p">Programinfo kommer snart...</p>
+                        <p className="mb-8 text-p font-bold">
+                          Programinfo kommer snart...
+                        </p>
                       )}
                       {filteredShow.fields.streamurl && (
                         <button
