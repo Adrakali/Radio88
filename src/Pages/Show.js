@@ -10,7 +10,7 @@ export default function Show() {
   const { setStreamSrc, setStreamSrcTitle } = useContext(StreamContext);
 
   return (
-    <>
+    <div>
       <div className="bg-accent">
         {loading && <div>Laddar...</div>}
         {error && <div>{error}</div>}
@@ -102,6 +102,6 @@ export default function Show() {
               })}
         </div>
       </section>
-    </>
+    </div>
   );
 }

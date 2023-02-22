@@ -3,7 +3,7 @@ import PageHeader from "../Components/PageHeader";
 
 function Support() {
   return (
-    <main>
+    <div>
       <PageHeader title={"Supporterklubben"} width={"1380px"} />
       <section>
         <div className="mx-auto max-w-[1380px] items-center gap-16 lg:flex">
@@ -59,7 +59,7 @@ function Support() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 

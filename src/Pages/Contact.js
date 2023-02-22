@@ -37,7 +37,7 @@ export default function Contact() {
   };
 
   return (
-    <main>
+    <div>
       <PageHeader width={"1380px"} title={"Kontakt"} />
 
       <div className="align-center mx-auto flex max-w-[1380px] lg:py-20 lg:px-0 px-8 py-8 flex-col lg:gap-24 gap-16 lg:flex-row">
@@ -166,6 +166,6 @@ export default function Contact() {
           </div>
         </section>
       </div>
-    </main>
+    </div>
   );
 }

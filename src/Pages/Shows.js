@@ -12,7 +12,7 @@ export default function Shows() {
     });
 
   return (
-    <main>
+    <div>
       <PageHeader width={"1380px"} title={"Program"} />
       <section>
         <div className="mx-auto max-w-[1380px]">
@@ -36,6 +36,6 @@ export default function Shows() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

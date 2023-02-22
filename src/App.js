@@ -13,10 +13,12 @@ import About from "./Pages/About";
 import Ads from "./Pages/Ads";
 import Support from "./Pages/Support";
 import Footer from "./Components/Footer";
+import ScrollToTop from "./scrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <TimeProvider>
         <StreamProvider>
           <Nav />

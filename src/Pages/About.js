@@ -3,7 +3,7 @@ import PageHeader from "../Components/PageHeader";
 
 function About() {
   return (
-    <main>
+    <div>
       <PageHeader title={"Om oss"} width={"960px"} />
       <section className="section px-4">
         <div className="mx-auto max-w-[960px]">
@@ -189,7 +189,7 @@ function About() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
 
