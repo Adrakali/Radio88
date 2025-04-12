@@ -14,29 +14,34 @@ import Ads from "./Pages/Ads";
 import Support from "./Pages/Support";
 import Footer from "./Components/Footer";
 import ScrollToTop from "./scrollToTop";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop />
-      <TimeProvider>
-        <StreamProvider>
-          <Nav />
-          <main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="program" element={<Shows />} />
-              <Route path="kontakt" element={<Contact />} />
-              <Route path="tabla" element={<Schedule />} />
-              <Route path="om" element={<About />} />
-              <Route path="annonsera" element={<Ads />} />
-              <Route path="supporterklubben" element={<Support />} />
-              <Route path="/program/:id" element={<Show />} />
-            </Routes>
-          </main>
-          <Footer />
-        </StreamProvider>
-      </TimeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ScrollToTop />
+        <TimeProvider>
+          <StreamProvider>
+            <Nav />
+            <main>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="program" element={<Shows />} />
+                <Route path="kontakt" element={<Contact />} />
+                <Route path="tabla" element={<Schedule />} />
+                <Route path="om" element={<About />} />
+                <Route path="annonsera" element={<Ads />} />
+                <Route path="supporterklubben" element={<Support />} />
+                <Route path="/program/:id" element={<Show />} />
+              </Routes>
+            </main>
+            <Footer />
+          </StreamProvider>
+        </TimeProvider>
+      </QueryClientProvider>
     </BrowserRouter>
   );
 }

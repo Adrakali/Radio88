@@ -1,0 +1,25 @@
+[debug] [2023-09-25T13:39:21.180Z] ----------------------------------------------------------------------
+[debug] [2023-09-25T13:39:21.182Z] Command:       /usr/local/bin/firebase /Users/rany/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase init
+[debug] [2023-09-25T13:39:21.182Z] CLI Version:   11.22.0
+[debug] [2023-09-25T13:39:21.183Z] Platform:      darwin
+[debug] [2023-09-25T13:39:21.183Z] Node Version:  v16.16.0
+[debug] [2023-09-25T13:39:21.192Z] Time:          Mon Sep 25 2023 15:39:21 GMT+0200 (Central European Summer Time)
+[debug] [2023-09-25T13:39:21.193Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-09-25T13:39:21.300Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-09-25T13:39:21.304Z] > authorizing via signed-in user (r.kallyny@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/rany/Documents/Frontend/Mina projekt/radio88
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+

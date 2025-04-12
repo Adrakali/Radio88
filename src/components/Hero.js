@@ -47,7 +47,7 @@ function Hero({
                         )}
                       </div>
                       {show.fields.image && (
-                        <div className="w-1/2 shadow-md lg:w-[450px]">
+                        <div className="w-1/2 sm:shadow-md lg:w-[450px]">
                           <img
                             className="w-full"
                             src={show.fields.image.fields.file.url}

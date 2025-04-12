@@ -1,32 +1,23 @@
 import { createClient } from "contentful";
-import { useState, useEffect } from "react";
+import { useQuery } from "react-query";
 
 export default function useContentful() {
   const { REACT_APP_SPACE_ID, REACT_APP_CDA_TOKEN } = process.env;
-  const [data, setData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   const client = createClient({
     space: REACT_APP_SPACE_ID,
     accessToken: REACT_APP_CDA_TOKEN,
   });
 
-  useEffect(() => {
-    const getAllEntries = async () => {
-      try {
-        await client.getEntries().then((entries) => {
-          setData(entries.items);
-          setIsLoading(false);
-          setError(null);
-        });
-      } catch (error) {
-        setIsLoading(false);
-        setError(error.message);
-      }
-    };
-    getAllEntries();
-  }, [client]);
+  const getAllEntries = async () => {
+    const entries = await client.getEntries();
+    return entries.items;
+  };
 
-  return { data, isLoading, error };
+  const { data, isLoading, isError } = useQuery(
+    "contentfulData",
+    getAllEntries
+  );
+
+  return { data, isLoading, isError };
 }
